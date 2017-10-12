@@ -10,89 +10,126 @@ public class Main {
     private static final String COMMA_DELIMITER = ",";
     public static void main(String[] args) throws FileNotFoundException {
 
-        String fileName = "pierecipe.csv";
+        //Student ID, Name, Status, Priority, and GPA. Does not include choices.
+        int studentInformation = 6;
 
+        //Filenames
+        String studentFileName = "StudentList.csv";
+        String optionsFileName = "OptionList.csv";
 
-        BufferedReader br = null;
-        try {
-            br = new BufferedReader(new FileReader(fileName));
+        BufferedReader br1 = null;
+        BufferedReader br2 = null;
+        try{
+            br1 = new BufferedReader(new FileReader("StudentList.csv"));
+            br2 = new BufferedReader(new FileReader("OptionList.csv"));
 
+            List<Options> optlist = new ArrayList<>();
             List<Student> stulist = new ArrayList<>();
-            String line ="";
 
-            br.readLine();
+            String line1 = "";
+            String line2 = "";
 
-            while ((line = br.readLine()) != null){
-                String[] studentInfo = line.split(COMMA_DELIMITER);
-//                System.out.println("LENGTH  " + studentInfo.length);
-//                System.out.println("SECOND  " + String.valueOf(studentInfo.length -6));
-//
-//                System.out.println("FOURTH  "+line);
-//
-//                System.out.print(studentInfo[0] + "\n");
-//                System.out.print(studentInfo[1] + "\n");
-//                System.out.print(studentInfo[2] + "\n");
-//                System.out.print(studentInfo[3] + "\n");
-//                System.out.print(studentInfo[4] + "\n");
-//                System.out.print(studentInfo[5] + "\n");
-//                System.out.print(studentInfo[6] + "\n");
-//                System.out.print(studentInfo[7] + "\n");
-//                System.out.print(studentInfo[8] + "\n");
-//                System.out.print(studentInfo[9] + "\n"  + "\n");
+            //Skips first line
+            br1.readLine();
+            br2.readLine();
+
+            while ((line1 = br1.readLine()) != null){
+
+                String[] studentInfo = line1.split(COMMA_DELIMITER);
 
                 if(studentInfo.length>0){
 
-                    //Variable to include first 6 indexes when reading file. Includes: ID, First Name, Last Name, Status, Priority, and GPA. Made to grab all student choices
-                    int SUM_WASTE = 6;
-                    int i = 0;
+                    ArrayList list = new ArrayList();
 
+                    //Puts all choices in an ArrayList
+                    while(studentInformation<studentInfo.length){
+                        String ch = studentInfo[studentInformation];
+                        list.add(ch);
+                        studentInformation++;
+                    }
 
-//                    while(SUM_WASTE<studentInfo.length){
-//                        String cherry = studentInfo[SUM_WASTE];
-//                        list.add(cherry);
-//                        SUM_WASTE++;
-//                    }
-
-                    List<String> list = new ArrayList<>();
-                    list.add("apple");
-                    list.add("blue");
-
-                    Student stu = new Student("A00123456", "Bob","Marley",1,12.50,list,null,"failed");
-                    Student stu2 = new Student("A00123456", "Trevor","Linden",2,12.50,null,null,null);
+                    //Adds student objects to student list
+                    Student stu = new Student(studentInfo[0], studentInfo[1], studentInfo[2], Integer.parseInt(studentInfo[4]), Double.parseDouble(studentInfo[5]), list, null, studentInfo[3]);
                     stulist.add(stu);
-                    stulist.add(stu2);
-//                    System.out.print(studentInfo[1] + "\n");
-//                    System.out.print(studentInfo[2] + "\n");
-//                    System.out.print(studentInfo[3] + "\n");
-//                    System.out.print(studentInfo[4] + "\n");
-//                    System.out.print(studentInfo[5] + "\n");
-//                    System.out.print(studentInfo[6] + "\n");
-//                    System.out.print(studentInfo[7] + "\n");
-//                    System.out.print(studentInfo[8] + "\n");
-//                    System.out.print(studentInfo[9] + "\n"  + "\n");
-//
-//                    Student stu = new Student(studentInfo[0], studentInfo[1], studentInfo[2], Integer.parseInt(studentInfo[4]), Double.parseDouble(studentInfo[5]), list, null, studentInfo[3]);
-//                    stulist.add(stu);
                 }
-            }
-
-            for(Student s:stulist){
+                //Prints out student information
+                for(Student s:stulist){
                 System.out.println("Student ID: "+s.getID()+"\t"+
                         "Student Name: "+s.getName()+"\t"+
                         "Student Status: "+s.getStatus()+"\t"+
                         "Student GPA: "+s.getGPA()+"\t"+
                         "Student Priority: "+s.getPriority()+"\t"+
                         "Student Choices: "+s.getStudentChoices());
+                }
+
             }
+
+//            while ((line1 = br1.readLine()) != null || (line2 = br2.readLine()) != null){
+//                if (line1 == null){
+//                    line1 = "";
+//                }
+//                if (line2 == null){
+//                    line2 = "";
+//                }
+//
+//                String[] studentInfo = line1.split(COMMA_DELIMITER);
+//                String[] optionInfo = line2.split(COMMA_DELIMITER);
+//
+//                System.out.println(line1);
+//                System.out.println(line2);
+//
+//                if(optionInfo.length>0){
+//
+//                    Options opt = new Options(optionInfo[0], Integer.parseInt(optionInfo[1]), null);
+//                    optlist.add(opt);
+//                }
+//
+//                if(studentInfo.length>0){
+//
+//                    ArrayList list = new ArrayList();
+//
+//                    //Variable to acquire the number of choices
+//                    int CHOICES = studentInfo.length - studentInformation;
+//
+//                    //Puts all choices in an ArrayList
+//                    while(studentInformation<studentInfo.length){
+//                        String ch = studentInfo[studentInformation];
+//                        list.add(ch);
+//                        studentInformation++;
+//                    }
+//
+//                    //Adds student objects to student list
+//                    Student stu = new Student(studentInfo[0], studentInfo[1], studentInfo[2], Integer.parseInt(studentInfo[4]), Double.parseDouble(studentInfo[5]), list, null, studentInfo[3]);
+//                    stulist.add(stu);
+//                }
+//            }
+//
+//            //Prints out Options information
+//            for(Options o:optlist){
+//                System.out.println("Name: "+o.getCourseName()+"\t"+
+//                        "Capacity: "+o.getCapacity()+"\t"+
+//                        "Class List: "+o.getClassList()+"\t");
+//            }
+
+//            //Prints out student information
+//            for(Student s:stulist){
+//                System.out.println("Student ID: "+s.getID()+"\t"+
+//                        "Student Name: "+s.getName()+"\t"+
+//                        "Student Status: "+s.getStatus()+"\t"+
+//                        "Student GPA: "+s.getGPA()+"\t"+
+//                        "Student Priority: "+s.getPriority()+"\t"+
+//                        "Student Choices: "+s.getStudentChoices());
+//            }
+
         }
         catch(Exception ee){
             ee.printStackTrace();
         }
         finally{
-
             try
             {
-                br.close();
+                br1.close();
+                br2.close();
             }
             catch(IOException ie)
             {
