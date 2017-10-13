@@ -19,6 +19,7 @@ public class ReadCSVFile {
             String line = "";
             //Read to skip the header
             br.readLine();
+
             //Reading from second line
             while ((line = br.readLine()) != null){
                 String[] studentInfo = line.split(COMMA_DELIMITER);
