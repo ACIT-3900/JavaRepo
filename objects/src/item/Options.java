@@ -21,6 +21,10 @@ public class Options {
         this.classList = classList;
     }
 
+    public void setClassList(ArrayList<String> newList){
+        this.classList = newList;
+    }
+
     public String getCourseName(){
         return courseName;
     }
@@ -38,6 +42,16 @@ public class Options {
                 str += classList.get(i) + "\t";
             }
             return str;
+        }
+    }
+
+    public int getEmptySeats() {
+        if(classList == null){
+            return capacity;
+        }
+        else{
+            int emptySeats = capacity - classList.size();
+            return emptySeats;
         }
     }
 }

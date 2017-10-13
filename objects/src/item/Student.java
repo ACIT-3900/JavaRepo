@@ -69,4 +69,40 @@ public class Student {
             return str;
         }
     }
+
+    public String getStudentFirstChoice(){
+        if (studentChoices == null) {
+            return null;
+        } else {
+            String str = studentChoices.get(0);
+            return str;
+        }
+    }
+
+    public String getStudentSecondChoice(){
+        if (studentChoices == null) {
+            return null;
+        } else {
+            String str = studentChoices.get(1);
+            return str;
+        }
+    }
+
+    public String getStudentThirdChoice(){
+        if (studentChoices == null) {
+            return null;
+        } else {
+            String str = studentChoices.get(2);
+            return str;
+        }
+    }
+
+    public String getStudentFourthChoice(){
+        if (studentChoices == null) {
+            return null;
+        } else {
+            String str = studentChoices.get(3);
+            return str;
+        }
+    }
 }
