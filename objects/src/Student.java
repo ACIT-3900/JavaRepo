@@ -11,6 +11,7 @@ public class Student {
     private double GPA;
     private ArrayList<String> studentChoices;
     private String assignedOption;
+    private String status;
 
     public Student(){
         this.ID =  "A00000000";
@@ -19,35 +20,65 @@ public class Student {
         this.priority = 0;
         this.GPA = 0;
         this.studentChoices = null;
+        this.assignedOption = "";
+        this.status = "";
 
     }
 
-    public Student(String id, String firstName, String lastName, int priority, double GPA, ArrayList<String> studentChoices){
+
+    Student(String id, String firstName, String lastName, int priority, String status, ArrayList<String> studentChoices){
         this.ID = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.priority = priority;
-        this.GPA = GPA;
+        if(status.equals("")) {
+            this.status = "Eligible";
+        }
         this.studentChoices = studentChoices;
+
     }
 
-    public String getID(){
+    Student(String id, double GPA, String lastName, String firstName){
+        this.ID = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.GPA = GPA;
+
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getAssignedOption() {
+        return assignedOption;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    String getID(){
         return ID;
     }
 
-    public String getName() {
+    String getName() {
         return firstName+" "+lastName;
     }
 
-    public int getPriority() {
+    int getPriority() {
         return priority;
     }
 
-    public double getGPA() {
+    double getGPA() {
         return GPA;
     }
 
-    public String getStudentChoices() {
+    String getStudentChoices() {
         if (studentChoices == null) {
             return null;
         } else {
@@ -57,6 +88,26 @@ public class Student {
             }
             return str;
         }
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
+    public void setGPA(double GPA) {
+        this.GPA = GPA;
+    }
+
+    public void setStudentChoices(ArrayList<String> studentChoices) {
+        this.studentChoices = studentChoices;
+    }
+
+    public void setAssignedOption(String assignedOption) {
+        this.assignedOption = assignedOption;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
 
