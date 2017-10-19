@@ -13,12 +13,22 @@ public class ReadCSVFile {
         {
 
             ArrayList<Student> stulist = new ArrayList<>();
+            ArrayList<Options> optionlist = new ArrayList<>();
+
             ReadStudentChoices(stulist, "StudentChoices.csv");
             ReadStudentGPA(stulist, "StudentGPA.csv");
+            ReadOptionList(optionlist, "OptionSelectionControl.csv");
+            StudentPlacement splace = new StudentPlacement(stulist, optionlist);
+            splace.displayGPA();
 
             //Print Student List
             for(Student s:stulist){
-                System.out.println(s.getID()+"\n"+s.getName()+"\nGPA: "+s.getGPA()+"\n"+s.getPriority()+"\n"+s.getStatus()+"\n"+s.getStudentChoices());
+                System.out.println(s.getID()+"\n"+s.getName()+"\nGPA: "+s.getGPA()+"\n"+s.getPriority()+"\n"+s.getStatus()+"\n"+s.printStudentChoices());
+                System.out.println("---------***--------");
+            }
+
+            for(Options o:optionlist){
+                System.out.println("Option Name: "+o.getOptionName()+"\nOption Capacity: "+o.getCapacity()+"\nAvailable:"+o.getEmptySeats()+"\nClass List:"+o.getClassList());
                 System.out.println("---------***--------");
             }
 
@@ -60,7 +70,7 @@ public class ReadCSVFile {
 
         String line;
         BufferedReader br;
-        br = new BufferedReader(new FileReader("StudentGPA.csv"));
+        br = new BufferedReader(new FileReader(filename));
         br.readLine();
 
         while ((line = br.readLine()) != null){
@@ -69,10 +79,25 @@ public class ReadCSVFile {
 
                 for (Student s : stulist) {
                     if(s.getID().equals(studentInfo[0])){
-                        s.setGPA(Double.parseDouble(studentInfo[1]));
+                        s.setGPA(studentInfo[1]);
                         break;
                     }
                 }
+            }
+        }
+    }
+    public static void ReadOptionList(ArrayList<Options> optionList, String filename) throws IOException {
+
+        String line;
+        BufferedReader br;
+        br = new BufferedReader(new FileReader(filename));
+        br.readLine();
+
+        while ((line = br.readLine()) != null){
+            String[] optionInfo = line.split(COMMA_DELIMITER);
+            if(optionInfo.length>0){
+                Options opt = new Options(optionInfo[0], Integer.parseInt(optionInfo[1]));
+                optionList.add(opt);
             }
         }
     }

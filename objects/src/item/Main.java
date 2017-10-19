@@ -45,8 +45,6 @@ public class Main {
                 hMap.put(s.getID(), s);
             }
 
-
-
             List<Double> mapValue = new ArrayList<>(tMap.values());
             List<String> mapKey = new ArrayList<>(tMap.keySet());
             Collections.sort(mapValue);
@@ -87,8 +85,6 @@ public class Main {
             HashMap<String, String> twoPriorityList = new HashMap<>();
             HashMap<String, String> threePriorityList = new HashMap<>();
             HashMap<String, String> fourPriorityList = new HashMap<>();
-
-
 
             //Sorts students into priority lists
 
@@ -149,7 +145,7 @@ public class Main {
                 int index = 0;
 
                 for (Options opt : optlist) {
-                    if (opt.getCourseName() == choice) {
+                    if (opt.getCourseName().equals(choice) ) {
                         if (opt.getEmptySeats() != 0) {
                             ArrayList<String> classList = new ArrayList<>();
                             classList.add(stu.getID() + "\t" + stu.getName() + "\t" + stu.getPriority() + "\t" + stu.getGPA());
@@ -159,7 +155,7 @@ public class Main {
                         } else{
                             String choice2 = (stu.getStudentSecondChoice());
                             for (Options opt2 : optlist) {
-                                if (opt.getCourseName() == choice2) {
+                                if (opt.getCourseName().equals(choice2)) {
                                     if (opt2.getEmptySeats() != 0) {
                                         ArrayList<Student> classList = new ArrayList<>();
                                         classList.add(stu);
@@ -200,9 +196,6 @@ public class Main {
                         "Empty Seats: "+o.getEmptySeats());
             }
 
-
-
-
             //Printing which students are in which Priority list
             while (itr1.hasNext()) {
                 Map.Entry me = (Map.Entry)itr1.next();
@@ -221,9 +214,6 @@ public class Main {
                 Map.Entry me = (Map.Entry)itr4.next();
                 System.out.println("Priority 4: "+me.getKey() + " " + me.getValue());
             }
-
-
-
 
         }
         catch(Exception ee){
