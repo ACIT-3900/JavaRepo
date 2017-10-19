@@ -142,7 +142,7 @@ public class Main {
 
             while (itr1.hasNext()) {
                 Map.Entry me = (Map.Entry) itr1.next();
-
+                System.out.println("Priority 1: "+me.getKey() + " " + me.getValue());
                 String studentId = (String) me.getKey();
                 Student stu = hMap.get(studentId);
                 String choice = (stu.getStudentFirstChoice());
