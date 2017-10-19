@@ -160,12 +160,11 @@ public class Main {
 
 
                 for (Options opt : optlist){
+
+                    opt.addStudentToList(stu);
                     if (opt.getCourseName().equals(choice)) {
                         opt.addStudentToList(stu);
                         break;
-                    }
-                    else{
-                        System.out.println("sucks");
                     }
                 }
 
@@ -258,21 +257,21 @@ public class Main {
 //                }
             }
 
-            for(Options o:optlist){
-                System.out.println("Course Name: "+o.getCourseName()+"\t"+
-                        "Course Capacity: "+o.getCapacity()+"\t"+
-                        "Class List: "+o.getClassList()+"\t"+
-                        "Empty Seats: "+o.getEmptySeats());
-            }
+//            for(Options o:optlist){
+//                System.out.println("Course Name: "+o.getCourseName()+"\t"+
+//                        "Course Capacity: "+o.getCapacity()+"\t"+
+//                        "Class List: "+o.getClassList()+"\t"+
+//                        "Empty Seats: "+o.getEmptySeats());
+//            }
 
 
 
 
             //Printing which students are in which Priority list
-            while (itr1.hasNext()) {
-                Map.Entry me = (Map.Entry)itr1.next();
-                System.out.println("Priority 1: "+me.getKey() + " " + me.getValue());
-            }
+//            while (itr1.hasNext()) {
+//                Map.Entry me = (Map.Entry)itr1.next();
+//                System.out.println("Priority 1: "+me.getKey() + " " + me.getValue());
+//            }
 //            while (itr2.hasNext()) {
 //                Map.Entry me = (Map.Entry)itr2.next();
 //
@@ -378,9 +377,8 @@ public class Main {
 
         while((line = br.readLine()) != null){
             String[] optionInfo = line.split(COMMA_DELIMITER);
-            ArrayList<String> optionList = new ArrayList<>();
             if(optionInfo.length>0){
-                Options opt = new Options(optionInfo[0], Integer.parseInt(optionInfo[1]), null);
+                Options opt = new Options(optionInfo[0], Integer.parseInt(optionInfo[1]));
                 optlist.add(opt);
             }
         }

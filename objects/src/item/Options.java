@@ -8,14 +8,16 @@ import java.util.ArrayList;
 public class Options {
     private String courseName;
     private int capacity;
-    private ArrayList<Student> classList = new ArrayList<Student>();
+    private ArrayList<Student> classList = new ArrayList<>();
 
-    public Options(String courseName, int capacity){
-        this.courseName =  "";
+
+    public Options(){
+        this.courseName = "";
         this.capacity = 0;
     }
 
     public Options(String courseName, int capacity, ArrayList<Student> classList) {
+
         this.courseName = courseName;
         this.capacity = capacity;
         this.classList = classList;
@@ -56,12 +58,7 @@ public class Options {
     }
 
     public void addStudentToList(Student student){
-        if(student == null){
-            System.out.println("suck all");
-        }
-        else{
-            this.classList.add(student);
-        }
+        classList.add(student);
     }
 }
 
