@@ -1,9 +1,7 @@
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class ReadCSVFile {
     private static final String COMMA_DELIMITER = ",";
@@ -21,11 +19,11 @@ public class ReadCSVFile {
             StudentPlacement splace = new StudentPlacement(stulist, optionlist);
             splace.displayGPA();
 
-            //Print Student List
-            for(Student s:stulist){
-                System.out.println(s.getID()+"\n"+s.getName()+"\nGPA: "+s.getGPA()+"\n"+s.getPriority()+"\n"+s.getStatus()+"\n"+s.printStudentChoices());
-                System.out.println("---------***--------");
-            }
+//            //Print Student List
+//            for(Student s:stulist){
+//                System.out.println(s.getID()+"\n"+s.getName()+"\nGPA: "+s.getGPA()+"\n"+s.getPriority()+"\n"+s.getStatus()+"\n"+s.printStudentChoices());
+//                System.out.println("---------***--------");
+//            }
 
             for(Options o:optionlist){
                 System.out.println("Option Name: "+o.getOptionName()+"\nOption Capacity: "+o.getCapacity()+"\nAvailable:"+o.getEmptySeats()+"\nClass List:"+o.getClassList());

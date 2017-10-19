@@ -13,12 +13,6 @@ public class Options {
         this.capacity = capacity;
     }
 
-    public Options(String optionName, int capacity, ArrayList<Student> classList) {
-        this.optionName = optionName;
-        this.capacity = capacity;
-        this.classList = classList;
-    }
-
     public void setOptionName(String optionName) {
         this.optionName = optionName;
     }
