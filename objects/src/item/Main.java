@@ -91,8 +91,6 @@ public class Main {
             HashMap<String, String> threePriorityList = new HashMap<>();
             HashMap<String, String> fourPriorityList = new HashMap<>();
 
-
-
             //Sorts students into priority lists
 
             for(String s:idList) {
@@ -155,18 +153,51 @@ public class Main {
                 String studentId = (String) me.getKey();
                 Student stu = hMap.get(studentId);
                 String choice = (stu.getStudentFirstChoice());
-                int index;
-                //ArrayList<String> newClassList = new ArrayList<>();
+                int index = 0;
 
-
-                for (Options opt : optlist){
-
-                    opt.addStudentToList(stu);
-                    if (opt.getCourseName().equals(choice)) {
-                        opt.addStudentToList(stu);
-                        break;
-                    }
-                }
+//                for (Options opt : optlist) {
+//                    if (opt.getCourseName().equals(choice) ) {
+//                        if (opt.getEmptySeats() != 0) {
+//                            ArrayList<String> classList = new ArrayList<>();
+//                            classList.add(stu.getID() + "\t" + stu.getName() + "\t" + stu.getPriority() + "\t" + stu.getGPA());
+//                            opt.setClassList(classList);
+//                            index = optlist.indexOf(opt);
+//                            optlist.get(index).setClassList(classList);
+//                        } else{
+//                            String choice2 = (stu.getStudentSecondChoice());
+//                            for (Options opt2 : optlist) {
+//                                if (opt.getCourseName().equals(choice2)) {
+//                                    if (opt2.getEmptySeats() != 0) {
+//                                        ArrayList<Student> classList = new ArrayList<>();
+//                                        classList.add(stu);
+//                                        index = optlist.indexOf(opt2);
+//                                    }else{
+//                                        String choice3 = (stu.getStudentThirdChoice());
+//                                        for(Options opt3:optlist){
+//                                            if(opt3.getEmptySeats() != 0){
+//                                                ArrayList<Student> classList = new ArrayList<>();
+//                                                classList.add(stu);
+//                                                index = optlist.indexOf(opt3);
+//                                            }else{
+//                                                String choice4 = (stu.getStudentFourthChoice());
+//                                                for(Options opt4:optlist) {
+//                                                    if (opt4.getEmptySeats() != 0) {
+//                                                        ArrayList<Student> classList = new ArrayList<>();
+//                                                        classList.add(stu);
+//                                                        index = optlist.indexOf(opt4);
+//                                                    }else{
+//                                                        System.out.println("Student could not be placed");
+//                                                    }
+//                                                }
+//                                            }
+//                                        }
+//                                    }
+//                                }
+//                            }
+//                        }
+//                        break;
+//                    }
+//                }
 
 //                for (Options opt : optlist) {
 //                    if (opt.getCourseName() == choice) {
@@ -256,16 +287,14 @@ public class Main {
 //                    }
 //                }
             }
-
-//            for(Options o:optlist){
-//                System.out.println("Course Name: "+o.getCourseName()+"\t"+
-//                        "Course Capacity: "+o.getCapacity()+"\t"+
-//                        "Class List: "+o.getClassList()+"\t"+
-//                        "Empty Seats: "+o.getEmptySeats());
+            //Printing which students are in which Priority list
+//            while (itr1.hasNext()) {
+//                Map.Entry me = (Map.Entry)itr1.next();
+//                System.out.println("Priority 1: "+me.getKey() + " " + me.getValue());
 //            }
-
-
-
+//            while (itr2.hasNext()) {
+//                Map.Entry me = (Map.Entry) itr2.next();
+//            }
 
             //Printing which students are in which Priority list
 //            while (itr1.hasNext()) {
@@ -285,9 +314,6 @@ public class Main {
 //                Map.Entry me = (Map.Entry)itr4.next();
 //                System.out.println("Priority 4: "+me.getKey() + " " + me.getValue());
 //            }
-
-
-
 
         }
         catch(Exception ee){
@@ -378,7 +404,7 @@ public class Main {
         while((line = br.readLine()) != null){
             String[] optionInfo = line.split(COMMA_DELIMITER);
             if(optionInfo.length>0){
-                Options opt = new Options(optionInfo[0], Integer.parseInt(optionInfo[1]));
+                Options opt = new Options(optionInfo[0], Integer.parseInt(optionInfo[1]), null);
                 optlist.add(opt);
             }
         }

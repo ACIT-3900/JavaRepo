@@ -8,7 +8,7 @@ public class Student {
     private String firstName;
     private String lastName;
     private int priority;
-    private double GPA;
+    private String GPA;
     private ArrayList<String> studentChoices;
     private String assignedOption;
     private String status;
@@ -18,7 +18,7 @@ public class Student {
         this.firstName = "";
         this.lastName = "";
         this.priority = 0;
-        this.GPA = 0;
+        this.GPA = "";
         this.studentChoices = null;
         this.assignedOption = "";
         this.status = "";
@@ -35,14 +35,6 @@ public class Student {
             this.status = "Eligible";
         }
         this.studentChoices = studentChoices;
-
-    }
-
-    Student(String id, double GPA, String lastName, String firstName){
-        this.ID = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.GPA = GPA;
 
     }
 
@@ -74,27 +66,19 @@ public class Student {
         return priority;
     }
 
-    double getGPA() {
+    String getGPA() {
         return GPA;
     }
 
-    String getStudentChoices() {
-        if (studentChoices == null) {
-            return null;
-        } else {
-            String str = "";
-            for (int i = 0; i < studentChoices.size(); i++) {
-                str += studentChoices.get(i) + "\t";
-            }
-            return str;
-        }
+    ArrayList<String> getStudentChoices() {
+        return studentChoices;
     }
 
     public void setPriority(int priority) {
         this.priority = priority;
     }
 
-    public void setGPA(double GPA) {
+    public void setGPA(String GPA) {
         this.GPA = GPA;
     }
 
@@ -108,6 +92,18 @@ public class Student {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    String printStudentChoices() {
+        if (studentChoices == null) {
+            return null;
+        } else {
+            String str = "";
+            for (int i = 0; i < studentChoices.size(); i++) {
+                str += studentChoices.get(i) + "\t";
+            }
+            return str;
+        }
     }
 }
 
