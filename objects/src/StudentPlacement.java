@@ -5,6 +5,10 @@ import java.util.Comparator;
 public class StudentPlacement{
     private ArrayList<Student> stulist;
     private ArrayList<Options> optlist;
+    private ArrayList<Student> priorityListOne = new ArrayList<>();
+    private ArrayList<Student> priorityListTwo = new ArrayList<>();
+    private ArrayList<Student> priorityListThree = new ArrayList<>();
+    private ArrayList<Student> priorityListFour = new ArrayList<>();
 
     public StudentPlacement(ArrayList<Student> stulist, ArrayList<Options> optlist){
         this.stulist = stulist;
@@ -15,47 +19,75 @@ public class StudentPlacement{
         Collections.sort(stulist, Comparator.comparing(Student::getGPA).reversed());
     }
 
-    private void sortStudentsOnPriority(ArrayList<Student> stulist, ArrayList<Options> optlist){
+    private void sortStudentsOnPriority(ArrayList<Student> stulist){
         for (Student s:stulist) {
             switch(s.getPriority()){
                 case 1:
-                    for(int i=0; i<s.getStudentChoices().size(); i++) {
-                        for (Options o : optlist) {
-                            if (s.getStudentChoices().get(i).equals(o.getOptionName())) {
-                                o.addToClassList(s);
-                                break;
-                            }
-                        }
-                        break;
-                    }
+                    priorityListOne.add(s);
+                    break;
 
                 case 2:
-                    for(int i=0; i<s.getStudentChoices().size(); i++) {
-                        for (Options o : optlist) {
-                            if (s.getStudentChoices().get(i).equals(o.getOptionName())) {
-                                o.addToClassList(s);
-                                break;
-                            }
-                        }
-                        break;
-                    }
+                    priorityListTwo.add(s);
+                    break;
 
                 case 3:
-                    for(int i=0; i<s.getStudentChoices().size(); i++) {
-                        for (Options o : optlist) {
-                            if (s.getStudentChoices().get(i).equals(o.getOptionName())) {
-                                o.addToClassList(s);
-                                break;
-                            }
-                        }
-                        break;
-                    }
+                    priorityListThree.add(s);
+                    break;
+
+                case 4:
+                    priorityListFour.add(s);
+                    break;
+            }
+        }
+
+//        System.out.println(" ----- PRIORITY LIST ONE: HAS ALL STUDENTS WITH PRIORITY ONE ----- \n");
+//        for(Student s:priorityListOne){
+//            System.out.println(s.getID()+"\n"+s.getName()+"\n"+s.getPriority()+"\n"+s.getGPA());
+//        }
+//
+//        System.out.println("\n ----- PRIORITY LIST TWO: HAS ALL STUDENTS WITH PRIORITY TWO ----- \n");
+//        for(Student s:priorityListTwo){
+//            System.out.println(s.getID()+"\n"+s.getName()+"\n"+s.getPriority()+"\n"+s.getGPA());
+//        }
+//
+//        System.out.println("\n ----- PRIORITY LIST THREE: HAS ALL STUDENTS WITH PRIORITY THREE ----- \n");
+//        for(Student s:priorityListThree){
+//            System.out.println(s.getID()+"\n"+s.getName()+"\n"+s.getPriority()+"\n"+s.getGPA());
+//        }
+//
+//        System.out.println("\n ----- PRIORITY LIST FOUR: HAS ALL STUDENTS WITH PRIORITY FOUR ----- \n");
+//        for(Student s:priorityListFour){
+//            System.out.println(s.getID()+"\n"+s.getName()+"\n"+s.getPriority()+"\n"+s.getGPA());
+//        }
+
+    }
+
+    private void placePriorityLists(ArrayList<Student> priorityList, ArrayList<Options> optlist){
+        for(Student s : priorityList){
+            for(Options o:optlist){
+                if(o.getOptionName().equals(s.getStudentChoices().get(0)) && o.getEmptySeats()!=0){
+                    o.addToClassList(s);
+                    break;
+                } else if(o.getOptionName().equals(s.getStudentChoices().get(1)) && o.getEmptySeats()!=0) {
+                    o.addToClassList(s);
+                    break;
+                } else if(o.getOptionName().equals(s.getStudentChoices().get(2)) && o.getEmptySeats()!=0) {
+                    o.addToClassList(s);
+                    break;
+                } else if(o.getOptionName().equals(s.getStudentChoices().get(3)) && o.getEmptySeats()!=0) {
+                    o.addToClassList(s);
+                    break;
+                }
             }
         }
     }
 
     public void displayGPA(){
         sortStudentsOnGPA(stulist);
-        sortStudentsOnPriority(stulist, optlist);
+        sortStudentsOnPriority(stulist);
+        placePriorityLists(priorityListOne, optlist);
+        placePriorityLists(priorityListTwo, optlist);
+        placePriorityLists(priorityListThree, optlist);
+        placePriorityLists(priorityListFour, optlist);
     }
 }
