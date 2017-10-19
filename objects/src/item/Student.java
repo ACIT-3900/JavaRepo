@@ -105,4 +105,24 @@ public class Student {
             return str;
         }
     }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
+    public void setGPA(double GPA) {
+        this.GPA = GPA;
+    }
+
+    public void setStudentChoices(ArrayList<String> studentChoices) {
+        this.studentChoices = studentChoices;
+    }
+
+    public void setAssignedOption(String assignedOption) {
+        this.assignedOption = assignedOption;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

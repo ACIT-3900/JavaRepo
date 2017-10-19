@@ -1,28 +1,24 @@
 package item;
 import java.util.ArrayList;
 
+
 /**
  * Created by rodne on 2017-10-11.
  */
 public class Options {
     private String courseName;
     private int capacity;
-    private ArrayList<String> classList;
+    private ArrayList<Student> classList = new ArrayList<Student>();
 
-    public Options(String courseName, int capacity, Object classList){
+    public Options(String courseName, int capacity){
         this.courseName =  "";
         this.capacity = 0;
-        this.classList = null;
     }
 
-    public Options(String courseName, int capacity, ArrayList<String> classList) {
+    public Options(String courseName, int capacity, ArrayList<Student> classList) {
         this.courseName = courseName;
         this.capacity = capacity;
         this.classList = classList;
-    }
-
-    public void setClassList(ArrayList<String> newList){
-        this.classList = newList;
     }
 
     public String getCourseName(){
@@ -39,7 +35,7 @@ public class Options {
         } else {
             String str = "";
             for (int i = 0; i < classList.size(); i++) {
-                str += classList.get(i) + "\t";
+                str += classList.get(i).getName() + "\t";
             }
             return str;
         }
@@ -52,6 +48,19 @@ public class Options {
         else{
             int emptySeats = capacity - classList.size();
             return emptySeats;
+        }
+    }
+
+    public void setClassList(ArrayList<Student> newList){
+        this.classList = newList;
+    }
+
+    public void addStudentToList(Student student){
+        if(student == null){
+            System.out.println("suck all");
+        }
+        else{
+            this.classList.add(student);
         }
     }
 }
