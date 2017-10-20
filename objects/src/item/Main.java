@@ -13,14 +13,14 @@ public class Main {
         try {
             ArrayList<Student> stulist = new ArrayList<>();
             ArrayList<Options> optlist = new ArrayList<>();
-            ReadOptionList(optlist, "OptionList.csv");
-            ReadStudentList(stulist, "StudentList.csv");
+            ReadOptionList(optlist, "OptionList2.csv");
+            ReadStudentList(stulist, "StudentList2.csv");
             Placement place = new Placement(stulist, optlist);
             place.displayGPA();
-                        for (Options o : optlist) {
-                            System.out.println("Course Name: " + o.getCourseName() + "\t" +
-                                    "Course Capacity: " + o.getCapacity() + "\t" +
-                                    "Class List: " + o.getClassList() + "\t" +
+            for (Options o : optlist) {
+                System.out.println("Course Name: " + o.getCourseName() + "\t" +
+                        "Course Capacity: " + o.getCapacity() + "\t" +
+                        "Class List: " + o.getClassList() + "\t" +
                                     "Empty Seats: " + o.getEmptySeats());
                         }
         }
@@ -56,7 +56,6 @@ public class Main {
     public static void ReadOptionList(ArrayList <Options> optlist, String filename)throws IOException{
         BufferedReader br;
         String line;
-
         br = new BufferedReader(new FileReader(filename));
         br.readLine();
 

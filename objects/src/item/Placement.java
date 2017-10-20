@@ -1,8 +1,4 @@
 package item;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.*;
 
 /**
@@ -13,10 +9,10 @@ public class Placement {
 
     private ArrayList<Student> stulist;
     private ArrayList<Options> optlist;
-    HashMap<String, String> onePriorityList = new HashMap<>();
-    HashMap<String, String> twoPriorityList = new HashMap<>();
-    HashMap<String, String> threePriorityList = new HashMap<>();
-    HashMap<String, String> fourPriorityList = new HashMap<>();
+    HashMap<String, ArrayList<String>> onePriorityList = new HashMap<>();
+    HashMap<String, ArrayList<String>> twoPriorityList = new HashMap<>();
+    HashMap<String, ArrayList<String>> threePriorityList = new HashMap<>();
+    HashMap<String, ArrayList<String>> fourPriorityList = new HashMap<>();
     HashMap<String, Student> hMap = new HashMap<>();
 
     public Placement(ArrayList<Student> stulist, ArrayList<Options> optlist){
@@ -100,33 +96,26 @@ public class Placement {
         }
     }
 
-    private void placePriorityLists(HashMap<String, String> priorityList, ArrayList<Options> optlist, HashMap<String, Student> hMap){
+    private void placePriorityLists(HashMap<String, ArrayList<String>> priorityList, ArrayList<Options> optlist, HashMap<String, Student> hMap) {
         Set set = priorityList.entrySet();
         Iterator itr = set.iterator();
 
         while(itr.hasNext()){
+            int checking = 0;
             Map.Entry me = (Map.Entry) itr.next();
             String studentId = (String) me.getKey();
             Student stu = hMap.get(studentId);
-            for(Options opt:optlist){
-                if (opt.getCourseName().equals(stu.getStudentFirstChoice()) && opt.getEmptySeats()!= 0 && stu.getStatus().equals("")) {
-                        opt.addStudentToList(stu);
-                        break;
-                }
-                else if(opt.getCourseName().equals(stu.getStudentSecondChoice()) && opt.getEmptySeats()!= 0 && stu.getStatus().equals("")) {
-                    opt.addStudentToList(stu);
-                    break;
-                }
-                else if(opt.getCourseName().equals(stu.getStudentThirdChoice()) && opt.getEmptySeats()!= 0 && stu.getStatus().equals("")) {
-                    opt.addStudentToList(stu);
-                    break;
-                }
-                else if(opt.getCourseName().equals(stu.getStudentFourthChoice()) && opt.getEmptySeats()!= 0 && stu.getStatus().equals("")) {
-                    opt.addStudentToList(stu);
-                    break;
-                }
-                else{
-                    System.out.println(stu.getID() + "\t" + stu.getName() + "\t" + "did not get placed in a course");
+            List<String> myList = stu.getStudentChoices();
+            for( int i = 0;i<myList.size();i++){
+                String choice = myList.get(i);
+                if(checking == 0){
+                    for(Options opt:optlist){
+                        if (opt.getCourseName().equals(choice) && opt.getEmptySeats()!= 0 && stu.getStatus().equals("")) {
+                            opt.addStudentToList(stu);
+                            checking++;
+                            break;
+                        }
+                    }
                 }
             }
         }

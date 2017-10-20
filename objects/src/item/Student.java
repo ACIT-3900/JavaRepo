@@ -11,7 +11,7 @@ public class Student {
     private String assignedOption;
     private String status;
 
-    public Student(String ID, String FNAME, String LNANE, int PRIORITY, double GPA, Object CHOICES, String ASSIGNED, String STATUS){
+    public Student(){
         this.ID =  "A00000000";
         this.firstName = "";
         this.lastName = "";
@@ -58,16 +58,8 @@ public class Student {
         return status;
     }
 
-    public String getStudentChoices() {
-        if (studentChoices == null) {
-            return null;
-        } else {
-            String str = "";
-            for (int i = 0; i < studentChoices.size(); i++) {
-                str += studentChoices.get(i) + "\t";
-            }
-            return str;
-        }
+    public ArrayList<String> getStudentChoices() {
+        return studentChoices;
     }
 
     public String getStudentFirstChoice(){
