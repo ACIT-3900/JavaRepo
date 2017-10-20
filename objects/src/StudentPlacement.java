@@ -39,27 +39,6 @@ public class StudentPlacement{
                     break;
             }
         }
-
-//        System.out.println(" ----- PRIORITY LIST ONE: HAS ALL STUDENTS WITH PRIORITY ONE ----- \n");
-//        for(Student s:priorityListOne){
-//            System.out.println(s.getID()+"\n"+s.getName()+"\n"+s.getPriority()+"\n"+s.getGPA());
-//        }
-//
-//        System.out.println("\n ----- PRIORITY LIST TWO: HAS ALL STUDENTS WITH PRIORITY TWO ----- \n");
-//        for(Student s:priorityListTwo){
-//            System.out.println(s.getID()+"\n"+s.getName()+"\n"+s.getPriority()+"\n"+s.getGPA());
-//        }
-//
-//        System.out.println("\n ----- PRIORITY LIST THREE: HAS ALL STUDENTS WITH PRIORITY THREE ----- \n");
-//        for(Student s:priorityListThree){
-//            System.out.println(s.getID()+"\n"+s.getName()+"\n"+s.getPriority()+"\n"+s.getGPA());
-//        }
-//
-//        System.out.println("\n ----- PRIORITY LIST FOUR: HAS ALL STUDENTS WITH PRIORITY FOUR ----- \n");
-//        for(Student s:priorityListFour){
-//            System.out.println(s.getID()+"\n"+s.getName()+"\n"+s.getPriority()+"\n"+s.getGPA());
-//        }
-
     }
 
     private void placePriorityLists(ArrayList<Student> priorityList, ArrayList<Options> optlist){

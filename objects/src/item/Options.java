@@ -7,22 +7,24 @@ import java.util.ArrayList;
 public class Options {
     private String courseName;
     private int capacity;
-    private ArrayList<String> classList;
+    private ArrayList<Student> classList = new ArrayList<>();
 
-    public Options(String courseName, int capacity, Object classList){
-        this.courseName =  "";
-        this.capacity = 0;
-        this.classList = null;
-    }
+    public Options(String courseName, int capacity) {
 
-    public Options(String courseName, int capacity, ArrayList<String> classList) {
         this.courseName = courseName;
         this.capacity = capacity;
-        this.classList = classList;
     }
 
-    public void setClassList(ArrayList<String> newList){
-        this.classList = newList;
+    public void setCourseName(String courseName){
+        this.courseName = courseName;
+    }
+
+    public void setCapacity(int capacity){
+        this.capacity = capacity;
+    }
+
+    public void setClassList(ArrayList<Student> newClassList){
+        this.classList = newClassList;
     }
 
     public String getCourseName(){
@@ -39,7 +41,7 @@ public class Options {
         } else {
             String str = "";
             for (int i = 0; i < classList.size(); i++) {
-                str += classList.get(i) + "\t";
+                str += classList.get(i).getName() + "\t";
             }
             return str;
         }
@@ -50,14 +52,11 @@ public class Options {
             return capacity;
         }
         else{
-            int emptySeats = capacity - classList.size();
-            return emptySeats;
+            return capacity - classList.size();
         }
     }
-}
 
-/**
-    I would create an “Option” Class. This class would have a ‘classlist’, and option name, a capacity etc..
-        When the  program starts I would read the ‘optiondata’ from wherever it is stored, and create a list of valid options with empty classlists.
-        Then as I process students I would do ‘option.add(Student)’. Etc
- */
+    public void addStudentToList(Student stu){
+        classList.add(stu);
+    }
+}

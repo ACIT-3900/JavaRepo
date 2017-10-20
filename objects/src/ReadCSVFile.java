@@ -12,7 +12,6 @@ public class ReadCSVFile {
 
             ArrayList<Student> stulist = new ArrayList<>();
             ArrayList<Options> optionlist = new ArrayList<>();
-
             ReadStudentChoices(stulist, "StudentChoices.csv");
             ReadStudentGPA(stulist, "StudentGPA.csv");
             ReadOptionList(optionlist, "OptionSelectionControl.csv");
