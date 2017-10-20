@@ -43,19 +43,16 @@ public class StudentPlacement{
 
     private void placePriorityLists(ArrayList<Student> priorityList, ArrayList<Options> optlist){
         for(Student s : priorityList){
-            for(Options o:optlist){
-                if(o.getOptionName().equals(s.getStudentChoices().get(0)) && o.getEmptySeats()!=0){
-                    o.addToClassList(s);
-                    break;
-                } else if(o.getOptionName().equals(s.getStudentChoices().get(1)) && o.getEmptySeats()!=0) {
-                    o.addToClassList(s);
-                    break;
-                } else if(o.getOptionName().equals(s.getStudentChoices().get(2)) && o.getEmptySeats()!=0) {
-                    o.addToClassList(s);
-                    break;
-                } else if(o.getOptionName().equals(s.getStudentChoices().get(3)) && o.getEmptySeats()!=0) {
-                    o.addToClassList(s);
-                    break;
+            int chk_placed = 0;
+            for(int i=0; i<s.getStudentChoices().size();i++) {
+                if (chk_placed == 0) {
+                    for (Options o : optlist) {
+                        if (o.getOptionName().equals(s.getStudentChoices().get(i)) && o.getEmptySeats() != 0) {
+                            o.addToClassList(s);
+                            chk_placed++;
+                            break;
+                        }
+                    }
                 }
             }
         }
