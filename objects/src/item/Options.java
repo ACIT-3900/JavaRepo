@@ -1,7 +1,6 @@
 package item;
 import java.util.ArrayList;
 
-
 /**
  * Created by rodne on 2017-10-11.
  */
@@ -10,17 +9,22 @@ public class Options {
     private int capacity;
     private ArrayList<Student> classList = new ArrayList<>();
 
-
-    public Options(){
-        this.courseName = "";
-        this.capacity = 0;
-    }
-
-    public Options(String courseName, int capacity, ArrayList<Student> classList) {
+    public Options(String courseName, int capacity) {
 
         this.courseName = courseName;
         this.capacity = capacity;
-        this.classList = classList;
+    }
+
+    public void setCourseName(String courseName){
+        this.courseName = courseName;
+    }
+
+    public void setCapacity(int capacity){
+        this.capacity = capacity;
+    }
+
+    public void setClassList(ArrayList<Student> newClassList){
+        this.classList = newClassList;
     }
 
     public String getCourseName(){
@@ -48,22 +52,11 @@ public class Options {
             return capacity;
         }
         else{
-            int emptySeats = capacity - classList.size();
-            return emptySeats;
+            return capacity - classList.size();
         }
     }
 
-    public void setClassList(ArrayList<Student> newList){
-        this.classList = newList;
-    }
-
-    public void addStudentToList(Student student){
-        classList.add(student);
+    public void addStudentToList(Student stu){
+        classList.add(stu);
     }
 }
-
-/**
-    I would create an “Option” Class. This class would have a ‘classlist’, and option name, a capacity etc..
-        When the  program starts I would read the ‘optiondata’ from wherever it is stored, and create a list of valid options with empty classlists.
-        Then as I process students I would do ‘option.add(Student)’. Etc
- */
