@@ -13,7 +13,7 @@ public class Main {
         try {
             ArrayList<Student> stulist = new ArrayList<>();
             ArrayList<Options> optlist = new ArrayList<>();
-            ReadOptionList(optlist, "OptionList2.csv");
+            ReadOptionList(optlist, "OptionSelectionControl.csv");
             ReadStudentList(stulist, "StudentList2.csv");
             Placement place = new Placement(stulist, optlist);
             place.displayGPA();
@@ -21,7 +21,7 @@ public class Main {
                 System.out.println("Course Name: " + o.getCourseName() + "\t" +
                         "Course Capacity: " + o.getCapacity() + "\t" +
                         "Class List: " + o.getClassList() + "\t" +
-                                    "Empty Seats: " + o.getEmptySeats());
+                        "Empty Seats: " + o.getEmptySeats());
                         }
         }
         catch(Exception ee){

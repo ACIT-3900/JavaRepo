@@ -1,0 +1,97 @@
+Student #,First Name,Last Name,Status,Priority,GPA,First Choice,Second Choice,Third Choice,Fourth Choice
+A00001281,Austin,Aguilar,,1,89.36,Digital Processing,Web & Mobile,Information Systems,Client Server
+A00001321,Cameron,An,,3,86.86,Web & Mobile,Information Systems,Data Communications,Client Server
+A00001241,Kevin,Aquilario,,4,85.32,Information Systems,Client Server,Web & Mobile,Digital Processing
+A00001266,Eddy,Banks-Bywater,,2,77.46,Information Systems,Web & Mobile,Data Communications,Client Server
+A00001242,Anson,Banman,,2,74.86,Web & Mobile,Data Communications,Information Systems,Client Server
+A00001286,Evgeni,Bayntun,,3,91.69,Data Communications,Web & Mobile,Digital Processing,Information Systems
+A00001311,Jagjot,Bhatti,,3,75.99,Web & Mobile,Digital Processing,Client Server,Information Systems
+A00001246,Nansi,Brandrick,,2,72.62,Data Communications,Information Systems,Web & Mobile,Client Server
+A00001244,Joshua,Brigden,,1,90.73,Client Server,Data Communications,Digital Processing,Wait for January
+A00001319,Adam,Buhler,,1,90.63,Data Communications,Web & Mobile,Information Systems,Digital Processing
+A00001324,Juan,Chan,,4,89.1,Data Communications,Information Systems,Digital Processing,Web & Mobile
+A00001317,Soran,Charles-Lundaahl,,3,88.86,Data Communications,Information Systems,Client Server,Wait for January
+A00001240,Gabriella,Cheng,,1,88.73,Information Systems,Client Server,Data Communications,Wait for January
+A00001327,Tyler,Chiang,,3,88.02,Web & Mobile,Digital Processing,Data Communications,Information Systems
+A00001306,Dzmitry,Chimick,,2,87.1,Client Server,Web & Mobile,Information Systems,Data Communications
+A00001294,Matthew,Chiu,,1,86.46,Data Communications,Information Systems,Digital Processing,Web & Mobile
+A00001320,Anthony,Chodolak,,4,86.42,Data Communications,Information Systems,Client Server,Web & Mobile
+A00001309,Ricky ,Chu,,3,86.42,Information Systems,Data Communications,Client Server,Web & Mobile
+A00001314,Jaegar,Clarke,Waiting on grades from PTS.,2,86.36,Information Systems,Client Server,Digital Processing,Data Communications
+A00001329,Chih,Craig,,1,84.98,Data Communications,Web & Mobile,Information Systems,Digital Processing
+A00001243,Carlo,Dale,,4,84.17,Data Communications,Information Systems,Client Server,Wait for January
+A00001298,Arthur,Dellow,,1,83.92,Information Systems,Client Server,Web & Mobile,Digital Processing
+A00001288,Dhivya,Dorsay,,3,83.36,Data Communications,Digital Processing,Information Systems,Client Server
+A00001261,Ruoqi,Ferreira,,2,83.11,Data Communications,Digital Processing,Information Systems,Web & Mobile
+A00001293,Eunwon,Gonzales,,4,82.39,Data Communications,Information Systems,Client Server,Digital Processing
+A00001245,Jon,Gutica,,1,82.33,Information Systems,Data Communications,Wait for January,Wait for January
+A00001250,Ralph,Hartline,,2,81.88,Information Systems,Web & Mobile,Data Communications,Wait for January
+A00001239,Xu,Harvey,,4,81.73,Information Systems,Client Server,Web & Mobile,Data Communications
+A00001258,William,Hlynsky,,3,81.43,Data Communications,Web & Mobile,Information Systems,Client Server
+A00001315,Matthew,Hodgkinson,,1,80.93,Digital Processing,Web & Mobile,Information Systems,Wait for January
+A00001247,Anthony,Hristov,,4,79.53,Web & Mobile,Information Systems,Digital Processing,Client Server
+A00001268,Sean,Hui,,2,78.73,Information Systems,Data Communications,Client Server,Wait for January
+A00001302,Scott,Hung,,1,78.69,Web & Mobile,Client Server,Data Communications,Digital Processing
+A00001255,Tyler,Ivanov,,2,77.71,Web & Mobile,Client Server,Information Systems,Data Communications
+A00001285,Quan-Huy,Jesse,Waiting on grades from PTS.,4,77.46,Digital Processing,Data Communications,Web & Mobile,Information Systems
+A00001287,Alvin,Ji,,1,77.37,Information Systems,Digital Processing,Data Communications,Client Server
+A00001235,Colin,Khan,May be placed on co-op,2,77.22,Information Systems,Client Server,Data Communications,Web & Mobile
+A00001248,Mary Grace,Khangura,,4,76.51,Information Systems,Data Communications,Data Communications,Data Communications
+A00001332,Micah,Kim,,1,75.07,Information Systems,Digital Processing,Data Communications,Web & Mobile
+A00001307,Roscef,Klassen,,1,74.46,Information Systems,Client Server,Digital Processing,Data Communications
+A00001283,Jacky,Kopczynski,,3,91.69,Digital Processing,Data Communications,Information Systems,Web & Mobile
+A00001264,Jason,Kouwenhoven,,4,87.27,Data Communications,Information Systems,Digital Processing,Web & Mobile
+A00001269,Allan,Krishnanta,,2,77.4,Information Systems,Digital Processing,Client Server,Data Communications
+A00001292,Robert,Lachapelle,,2,75.99,Information Systems,Data Communications,Web & Mobile,Digital Processing
+A00001237,Stuart,Lai,,1,62.2,Web & Mobile,Client Server,Data Communications,Information Systems
+A00001308,Daniel,Lam,,4,89.27,Data Communications,Information Systems,Web & Mobile,Digital Processing
+A00001265,Yu Ching,Lam,,1,87.88,Data Communications,Digital Processing,Web & Mobile,Client Server
+A00001310,Carson,Lauzon,,4,87.75,Web & Mobile,Client Server,Data Communications,Information Systems
+A00001316,Chang Beom,Lee,,2,86.98,Digital Processing,Web & Mobile,Information Systems,Client Server
+A00001299,Kamil,Lee,,3,86.78,Information Systems,Client Server,Data Communications,Web & Mobile
+A00001257,Grayden,Leung,,4,86.5,Information Systems,Client Server,Web & Mobile,Digital Processing
+A00001236,Trevor,Leung,,1,85.64,Data Communications,Web & Mobile,Information Systems,Client Server
+A00001260,John,lim,,4,78.69,Data Communications,Digital Processing,Client Server,Web & Mobile
+A00001274,Michael,Liu,,3,77.64,Web & Mobile,Information Systems,Data Communications,Client Server
+A00001289,Johnny,Lo,Waiting on grades from PTS.,2,77.22,Information Systems,Web & Mobile,Client Server,Wait for January
+A00001290,Tyler,Lockhart,,1,75.96,Data Communications,Web & Mobile,Information Systems,Wait for January
+A00001313,Rupinder Pal,Loho,,3,65.41,Information Systems,Data Communications,Web & Mobile,Digital Processing
+A00001303,Spencer,Lues,,2,87.47,Web & Mobile,Data Communications,Information Systems,Client Server
+A00001262,Vivek,Lyons-Davis,,1,87.29,Web & Mobile,Client Server,Information Systems,Data Communications
+A00001277,Daniel Ying Hung,Ma,,4,87.27,Wait for January,Web & Mobile,Client Server,Information Systems
+A00001238,Krystle,Mabbott,,2,77.4,Information Systems,Web & Mobile,Client Server,Digital Processing
+A00001279,Nathaniel,Marantz,,3,74.73,Digital Processing,Information Systems,Data Communications,Client Server
+A00001253,Juven,Meilleur,,1,71.5,Data Communications,Wait for January,Wait for January,Wait for January
+A00001296,Khoa,Montano,,4,94.32,Data Communications,Web & Mobile,Wait for January,Information Systems
+A00001278,Brian,Padua,,4,92.35,Data Communications,Information Systems,Digital Processing,Web & Mobile
+A00001300,Joseph,Pelka,,2,90.82,Information Systems,Data Communications,Web & Mobile,Client Server
+A00001284,Jing,Pham,,3,90.2,Information Systems,Data Communications,Client Server,Web & Mobile
+A00001249,Hsuan Wei,Qualizza,,1,89.83,Digital Processing,Data Communications,Web & Mobile,Information Systems
+A00001259,Jayson,rafanan,,4,89.63,Data Communications,Digital Processing,Web & Mobile,Information Systems
+A00001272,Eric,Rattan,,1,89.42,Digital Processing,Web & Mobile,Information Systems,Data Communications
+A00001301,Duy,Rempel,,2,88.51,Digital Processing,Data Communications,Information Systems,Client Server
+A00001267,Eric,Sabourova,,4,88.15,Digital Processing,Data Communications,Information Systems,Web & Mobile
+A00001297,Nguyen,Sadio,,3,87.64,Client Server,Information Systems,Web & Mobile,Digital Processing
+A00001318,She Jong,Sarang,,1,87.17,Data Communications,Information Systems,Digital Processing,Wait for January
+A00001323,Clifton,Sato,,3,86.5,Data Communications,Web & Mobile,Client Server,Information Systems
+A00001280,Hank,Scott,,4,85.1,Data Communications,Web & Mobile,Digital Processing,Information Systems
+A00001282,Eric,Smith,,1,85.04,Information Systems,Client Server,Digital Processing,Data Communications
+A00001325,Tom,Smith-Manchip,,3,84.6,Web & Mobile,Client Server,Information Systems,Data Communications
+A00001271,Seonghyoung,Soer,,4,83.68,Data Communications,Digital Processing,Client Server,Information Systems
+A00001276,Andrew,Tallarico,,1,83.6,Data Communications,Client Server,Information Systems,Web & Mobile
+A00001312,Samuel,Tallentire,,2,83.1,Data Communications,Web & Mobile,Information Systems,Client Server
+A00001295,Kwok Chu,Tan,,3,82.13,Information Systems,Client Server,Digital Processing,Data Communications
+A00001252,Hai Hoang,Truong,May be placed on co-op,3,82,Web & Mobile,Data Communications,Information Systems,Wait for January
+A00001270,Spenser,Tsang,,1,79.64,Digital Processing,Web & Mobile,Information Systems,Wait for January
+A00001256,Phillip,Velasco,,4,79.22,Data Communications,Information Systems,Wait for January,Digital Processing
+A00001275,Don Yimeng,Vouve,,2,78.73,Information Systems,Data Communications,Client Server,Web & Mobile
+A00001305,Yong Ern,Walker-Illing,,4,78.08,Information Systems,Data Communications,Wait for January,Client Server
+A00001254,Aicha,Wang,,4,77.71,Data Communications,Web & Mobile,Information Systems,Digital Processing
+A00001326,Jose Claudio,Wang,,1,77.46,Information Systems,Web & Mobile,Data Communications,Digital Processing
+A00001273,Tony,Waziri,,3,76.51,Information Systems,Web & Mobile,Client Server,Data Communications
+A00001291,Martin,WU,,2,74.86,Information Systems,Client Server,Web & Mobile,Digital Processing
+A00001331,Andrew,Xia,,4,74.46,Data Communications,Information Systems,Digital Processing,Web & Mobile
+A00001251,Quan,Xie,,1,91.69,Information Systems,Digital Processing,Web & Mobile,Data Communications
+A00001322,Wesley,Ye,,1,76.54,Digital Processing,Data Communications,Client Server,Information Systems
+A00001304,Derrick,Yoo,,4,75.99,Information Systems,Client Server,Web & Mobile,Data Communications
+A00001330,Brendan,Yoon,,3,74.73,Data Communications,Information Systems,Digital Processing,Web & Mobile

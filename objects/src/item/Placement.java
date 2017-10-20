@@ -110,7 +110,7 @@ public class Placement {
                 String choice = myList.get(i);
                 if(checking == 0){
                     for(Options opt:optlist){
-                        if (opt.getCourseName().equals(choice) && opt.getEmptySeats()!= 0 && stu.getStatus().equals("")) {
+                        if (opt.getCourseName().equals(choice) && stu.getStatus().equals("")) {
                             opt.addStudentToList(stu);
                             checking++;
                             break;
@@ -119,6 +119,29 @@ public class Placement {
                 }
             }
         }
+
+
+
+
+//        while(itr.hasNext()){
+//            int checking = 0;
+//            Map.Entry me = (Map.Entry) itr.next();
+//            String studentId = (String) me.getKey();
+//            Student stu = hMap.get(studentId);
+//            List<String> myList = stu.getStudentChoices();
+//            for( int i = 0;i<myList.size();i++){
+//                String choice = myList.get(i);
+//                if(checking == 0){
+//                    for(Options opt:optlist){
+//                        if (opt.getCourseName().equals(choice) && opt.getEmptySeats()!= 0 && stu.getStatus().equals("")) {
+//                            opt.addStudentToList(stu);
+//                            checking++;
+//                            break;
+//                        }
+//                    }
+//                }
+//            }
+//        }
     }
 
     public void displayGPA(){
