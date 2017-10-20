@@ -54,9 +54,3 @@ public class Options {
         classList.add(stu);
     }
 }
-
-/**
- I would create an “Option” Class. This class would have a ‘classlist’, and option name, a capacity etc..
- When the  program starts I would read the ‘optiondata’ from wherever it is stored, and create a list of valid options with empty classlists.
- Then as I process students I would do ‘option.add(Student)’. Etc
- */
