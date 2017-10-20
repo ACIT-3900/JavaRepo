@@ -23,4 +23,7 @@ hs_err_pid*
 
 .idea
 out
+objects/StudentListTest1 - SamePriSameGrade
+objects/StudentListTest2 - DiffPriSameGrade
+objects/StudentListTest3 - DiffPriDiffGrade
 
