@@ -35,10 +35,14 @@ public class Student {
             this.status = "Eligible";
         }
         this.studentChoices = studentChoices;
-
     }
 
-    public String getFirstName() {
+    Student(String firstName, String lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    String getFirstName() {
         return firstName;
     }
 

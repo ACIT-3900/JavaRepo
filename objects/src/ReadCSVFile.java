@@ -63,7 +63,7 @@ public class ReadCSVFile {
             }
         }
     }
-    public static void ReadStudentGPA(ArrayList<Student> stulist, String filename) throws IOException {
+    private static void ReadStudentGPA(ArrayList<Student> stulist, String filename) throws IOException {
 
         String line;
         BufferedReader br;
