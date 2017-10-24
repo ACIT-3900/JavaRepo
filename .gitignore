@@ -29,4 +29,8 @@ objects/StudentListTest3 - DiffPriDiffGrade.csv
 objects/StudentList.csv
 objects/StudentList2.csv
 objects/OptionList.csv
+.classpath
+.gitignore
+.project
 
+/bin/
