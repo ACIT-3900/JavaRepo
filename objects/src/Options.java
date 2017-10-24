@@ -25,15 +25,15 @@ public class Options {
         this.classList = newList;
     }
 
-    public String getOptionName(){
+    String getOptionName(){
         return optionName;
     }
 
-    public int getCapacity(){
+    int getCapacity(){
         return capacity;
     }
 
-    public String getClassList(){
+    String getClassList(){
         if (classList == null) {
             return null;
         } else {
@@ -45,12 +45,12 @@ public class Options {
         }
     }
 
-    public int getEmptySeats() {
+    int getEmptySeats() {
         if(classList == null) return capacity;
         else return capacity - classList.size();
     }
 
-    public void addToClassList(Student stu){
+    void addToClassList(Student stu){
         classList.add(stu);
     }
 }

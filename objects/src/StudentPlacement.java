@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class StudentPlacement{
+class StudentPlacement{
     private ArrayList<Student> stulist;
     private ArrayList<Options> optlist;
     private ArrayList<Student> priorityListOne = new ArrayList<>();
@@ -10,7 +10,7 @@ public class StudentPlacement{
     private ArrayList<Student> priorityListThree = new ArrayList<>();
     private ArrayList<Student> priorityListFour = new ArrayList<>();
 
-    public StudentPlacement(ArrayList<Student> stulist, ArrayList<Options> optlist){
+    StudentPlacement(ArrayList<Student> stulist, ArrayList<Options> optlist){
         this.stulist = stulist;
         this.optlist = optlist;
     }
@@ -58,7 +58,7 @@ public class StudentPlacement{
         }
     }
 
-    public void displayGPA(){
+    void displayGPA(){
         sortStudentsOnGPA(stulist);
         sortStudentsOnPriority(stulist);
         placePriorityLists(priorityListOne, optlist);
