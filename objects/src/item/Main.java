@@ -10,46 +10,106 @@ public class Main {
     private static final String COMMA_DELIMITER = ",";
     public static void main(String[] args) throws FileNotFoundException {
 
+
         try {
             ArrayList<Student> stulist = new ArrayList<>();
             ArrayList<Options> optlist = new ArrayList<>();
+            HashSet<Student> nullList = new HashSet<>();
             ReadOptionList(optlist, "OptionSelectionControl.csv");
-            ReadStudentList(stulist, "StudentList2.csv");
-            Placement place = new Placement(stulist, optlist);
+            ReadStudentChoices(stulist, "StudentChoices.csv");
+            ReadStudentGPA(stulist, "StudentGPA.csv");
+            Placement place = new Placement(stulist, optlist, nullList);
             place.displayGPA();
-            for (Options o : optlist) {
-                System.out.println("Course Name: " + o.getCourseName() + "\t" +
-                        "Course Capacity: " + o.getCapacity() + "\t" +
-                        "Class List: " + o.getClassList() + "\t" +
-                        "Empty Seats: " + o.getEmptySeats());
+
+            Scanner scan = new Scanner(System.in);
+            System.out.println("What would you like to do?");
+            System.out.println("A) View students in Client Server course");
+            System.out.println("B) View students in Web & Mobile course");
+            System.out.println("C) View students in Data Communications course");
+            System.out.println("D) View students in Digital Processing course");
+            System.out.println("E) View students in Information Systems course");
+            System.out.println("F) View students who would like to wait for January term");
+            System.out.println("G) View students who did not get placed in a course");
+
+            String answer = scan.nextLine();
+
+            while(!answer.equals("q")){
+                if("a".equals(answer)){
+                    Options opt = optlist.get(0);
+                    String courseName = opt.getCourseName();
+                    int capacity = opt.getCapacity();
+                    String classList = opt.getClassList();
+                    System.out.println();
+                    System.out.println("Course: " + courseName);
+                    System.out.println("Capacity: " + capacity);
+                    System.out.println("Class List: " + classList);
+                    System.out.println();
+                    System.out.println("What would you like to do?");
+                    System.out.println("A) Remove Student");
+                    System.out.println("B) Add Student");
+                    System.out.println("C) Back");
+                    answer = scan.nextLine();
+                    while(!answer.equals("q")){
+                        if("a".equals(answer)){
+                            System.out.println();
+                            System.out.println("Please select the student");
+                            System.out.println(opt.getClassList());
+                            answer = scan.nextLine();
+                            opt.removeStudent(answer);
+                            System.out.println();
+                            System.out.println(opt.getClassList());
+                            break;
+                        }else if("b".equals(answer)){
+                            System.out.println("Please enter student name");
+                            answer = scan.nextLine();
+                            for(Student s:stulist){
+                                if(answer.equals(s.getName())){
+                                    if("".equals(opt.checkStudentInClass(answer))){
+                                        opt.addStudentToList(s);
+                                        System.out.println(optlist.get(0).getClassList());
+                                        break;
+                                    }else if("pos".equals(optlist.get(0).checkStudentInClass(answer))){
+                                        System.out.println("Student already in class");
+                                        break;
+                                    }
+                                }
+                            }
+                            break;
+                        }else{
+                            break;
                         }
+                    }
+                }else if("b".equals(answer)){
+                    System.out.println(optlist.get(1).getClassList());
+                }else if("c".equals(answer)){
+                    System.out.println(optlist.get(2).getClassList());
+                }else if("d".equals(answer)){
+                    System.out.println(optlist.get(3).getClassList());
+                }else if("e".equals(answer)){
+                    System.out.println(optlist.get(4).getClassList());
+                }else if("f".equals(answer)){
+                    System.out.println(optlist.get(5).getClassList());
+                }else if("g".equals(answer)){
+                    for(Student s:nullList){
+                        System.out.println(s.getName());
+                    }
+                }
+                System.out.println();
+                System.out.println("What would you like to do?");
+                System.out.println("A) View students in Client Server course");
+                System.out.println("B) View students in Web & Mobile course");
+                System.out.println("C) View students in Data Communications course");
+                System.out.println("D) View students in Digital Processing course");
+                System.out.println("E) View students in Information Systems course");
+                System.out.println("F) View students who would like to wait for January term");
+                System.out.println("G) View students who did not get placed in a course");
+                answer = scan.nextLine();
+            }
+
+            scan.close();
         }
         catch(Exception ee){
             ee.printStackTrace();
-        }
-    }
-
-    public static void ReadStudentList(ArrayList <Student> stulist, String filename)throws IOException{
-        BufferedReader br;
-        String line;
-
-
-        br = new BufferedReader(new FileReader(filename));
-        br.readLine();
-
-        while((line = br.readLine()) != null){
-            String[] studentInfo = line.split(COMMA_DELIMITER);
-            ArrayList<String> studentChoices = new ArrayList<>();
-            if(studentInfo.length>0){
-                int studentInformation = 6;
-                while(studentInformation < studentInfo.length){
-                    String choice = studentInfo[studentInformation];
-                    studentChoices.add(choice);
-                    studentInformation++;
-                }
-                Student stu = new Student(studentInfo[0], studentInfo[1], studentInfo[2], Integer.parseInt(studentInfo[4]), Double.parseDouble(studentInfo[5]), studentChoices, null, studentInfo[3]);
-                stulist.add(stu);
-            }
         }
     }
 
@@ -64,6 +124,55 @@ public class Main {
             if(optionInfo.length>0){
                 Options opt = new Options(optionInfo[0], Integer.parseInt(optionInfo[1]));
                 optlist.add(opt);
+            }
+        }
+    }
+    public static void ReadStudentChoices(ArrayList<Student> stulist, String filename) throws IOException {
+
+        BufferedReader br;
+        String line;
+        //Reading CSV file
+        br = new BufferedReader(new FileReader(filename));
+
+        //Read to skip the header
+        br.readLine();
+
+        //Reading from second line
+        while ((line = br.readLine()) != null){
+            String[] studentInfo = line.split(COMMA_DELIMITER);
+            ArrayList<String> studentChoices = new ArrayList<>();
+            if(studentInfo.length>0){
+
+                //save option choices made by student
+                studentChoices.add(studentInfo[5]);
+                studentChoices.add(studentInfo[6]);
+                studentChoices.add(studentInfo[7]);
+                studentChoices.add(studentInfo[8]);
+
+                //Save details
+                Student stu = new Student(studentInfo[0], studentInfo[1], studentInfo[2], Integer.parseInt(studentInfo[3]), 0, studentChoices, "", studentInfo[4]);
+                stulist.add(stu);
+            }
+        }
+    }
+    public static void ReadStudentGPA(ArrayList<Student> stulist, String filename) throws IOException {
+
+        String line;
+        BufferedReader br;
+        br = new BufferedReader(new FileReader(filename));
+        br.readLine();
+
+        while ((line = br.readLine()) != null){
+            String[] studentInfo = line.split(COMMA_DELIMITER);
+            if(studentInfo.length>0){
+
+                for (Student s : stulist) {
+                    if(s.getID().equals(studentInfo[0])){
+                        Double dbl = Double.parseDouble(studentInfo[1]);
+                        s.setGPA(dbl);
+                        break;
+                    }
+                }
             }
         }
     }

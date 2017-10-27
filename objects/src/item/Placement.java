@@ -6,34 +6,38 @@ import java.util.*;
  */
 public class Placement {
 
-
     private ArrayList<Student> stulist;
     private ArrayList<Options> optlist;
-    HashMap<String, ArrayList<String>> onePriorityList = new HashMap<>();
-    HashMap<String, ArrayList<String>> twoPriorityList = new HashMap<>();
-    HashMap<String, ArrayList<String>> threePriorityList = new HashMap<>();
-    HashMap<String, ArrayList<String>> fourPriorityList = new HashMap<>();
+    private HashSet<Student> nullList;
+    ArrayList<String> idList = new ArrayList<>();
+    ArrayList<Student> onePriorityList = new ArrayList<>();
+    ArrayList<Student> twoPriorityList = new ArrayList<>();
+    ArrayList<Student> threePriorityList = new ArrayList<>();
+    ArrayList<Student> fourPriorityList = new ArrayList<>();
     HashMap<String, Student> hMap = new HashMap<>();
+    HashMap<String, Double> tMap = new HashMap<>();
 
-    public Placement(ArrayList<Student> stulist, ArrayList<Options> optlist){
+    public Placement(ArrayList<Student> stulist, ArrayList<Options> optlist, HashSet<Student> nullList){
         this.stulist = stulist;
         this.optlist = optlist;
+        this.nullList = nullList;
     }
 
-    private HashMap<String, Student> addStudentToList(ArrayList<Student> stuList){
+    private HashMap<String, Student> createStudentList1(ArrayList<Student> stulist){
         for(Student s:stulist){
             hMap.put(s.getID(), s);
         }
         return hMap;
     }
 
-    private ArrayList<String> sortStudentsOnGPA(ArrayList<Student> stulist, HashMap<String, Student> hMap){
-        HashMap<String, Double> tMap = new HashMap<>();
-
+    private HashMap<String, Double> createStudentList2(ArrayList<Student> stulist){
         for(Student s:stulist){
             tMap.put(s.getID(), s.getGPA());
-            hMap.put(s.getID(), s);
         }
+        return tMap;
+    }
+
+    private ArrayList<String> sortStudentsOnGPA(HashMap<String, Double> tMap){
 
         List<Double> mapValue = new ArrayList<>(tMap.values());
         List<String> mapKey = new ArrayList<>(tMap.keySet());
@@ -63,8 +67,6 @@ public class Placement {
         Set set = sortedMap.entrySet();
         Iterator itr = set.iterator();
 
-        ArrayList<String> idList = new ArrayList<>();
-
         while (itr.hasNext()) {
             Map.Entry me = (Map.Entry) itr.next();
             idList.add(0, (String) me.getKey());
@@ -78,77 +80,84 @@ public class Placement {
             int i = stu.getPriority();
             switch(i){
                 case 1:
-                    onePriorityList.put(stu.getID(), stu.getStudentChoices());
+                    onePriorityList.add(stu);
                     break;
 
                 case 2:
-                    twoPriorityList.put(stu.getID(), stu.getStudentChoices());
+                    twoPriorityList.add(stu);
                     break;
 
                 case 3:
-                    threePriorityList.put(stu.getID(), stu.getStudentChoices());
+                    threePriorityList.add(stu);
                     break;
 
                 case 4:
-                    fourPriorityList.put(stu.getID(), stu.getStudentChoices());
+                    fourPriorityList.add(stu);
                     break;
             }
         }
     }
 
-    private void placePriorityLists(HashMap<String, ArrayList<String>> priorityList, ArrayList<Options> optlist, HashMap<String, Student> hMap) {
-        Set set = priorityList.entrySet();
-        Iterator itr = set.iterator();
+    private void createNullList(ArrayList<Student> onePriorityList, ArrayList<Student> twoPriorityList, ArrayList<Student> threePriorityList, ArrayList<Student> fourPriorityList){
+        ArrayList<Student> one = onePriorityList;
+        ArrayList<Student> two = twoPriorityList;
+        ArrayList<Student> three = threePriorityList;
+        ArrayList<Student> four = fourPriorityList;
 
-        while(itr.hasNext()){
+
+        for(Student stu:one){
+            if(stu.getAssignedOption().equals("NOTHING")){
+                nullList.add(stu);
+            }
+        }
+        for(Student stu:two){
+            if(stu.getAssignedOption().equals("NOTHING")){
+                nullList.add(stu);
+            }
+        }
+        for(Student stu:three){
+            if(stu.getAssignedOption().equals("NOTHING")){
+                nullList.add(stu);
+            }
+        }
+        for(Student stu:four){
+            if(stu.getAssignedOption().equals("NOTHING")){
+                nullList.add(stu);
+            }
+        }
+    }
+
+    private void placePriorityLists(ArrayList<Student> priorityList, ArrayList<Options> optlist) {
+        for(Student stu:priorityList){
             int checking = 0;
-            Map.Entry me = (Map.Entry) itr.next();
-            String studentId = (String) me.getKey();
-            Student stu = hMap.get(studentId);
-            List<String> myList = stu.getStudentChoices();
-            for( int i = 0;i<myList.size();i++){
-                String choice = myList.get(i);
+            for( int i = 0;i<stu.getStudentChoices().size();i++){
                 if(checking == 0){
                     for(Options opt:optlist){
-                        if (opt.getCourseName().equals(choice) && stu.getStatus().equals("")) {
+                        if (opt.getCourseName().equals(stu.getStudentChoices().get(i)) && stu.getStatus().equals("") && opt.getEmptySeats()!= 0) {
                             opt.addStudentToList(stu);
+                            stu.setAssignedOption(opt.getCourseName());
                             checking++;
                             break;
                         }
                     }
                 }
+            }if(checking == 0 && stu.getAssignedOption() != null){
+                stu.setAssignedOption("NOTHING");
             }
         }
-
-
-
-
-//        while(itr.hasNext()){
-//            int checking = 0;
-//            Map.Entry me = (Map.Entry) itr.next();
-//            String studentId = (String) me.getKey();
-//            Student stu = hMap.get(studentId);
-//            List<String> myList = stu.getStudentChoices();
-//            for( int i = 0;i<myList.size();i++){
-//                String choice = myList.get(i);
-//                if(checking == 0){
-//                    for(Options opt:optlist){
-//                        if (opt.getCourseName().equals(choice) && opt.getEmptySeats()!= 0 && stu.getStatus().equals("")) {
-//                            opt.addStudentToList(stu);
-//                            checking++;
-//                            break;
-//                        }
-//                    }
-//                }
-//            }
-//        }
     }
 
     public void displayGPA(){
-        sortStudentsOnPriority(sortStudentsOnGPA(stulist, hMap), hMap);
-        placePriorityLists(onePriorityList, optlist, hMap);
-        placePriorityLists(twoPriorityList, optlist, hMap);
-        placePriorityLists(threePriorityList, optlist, hMap);
-        placePriorityLists(fourPriorityList, optlist, hMap);
+        createStudentList1(stulist);
+        createStudentList2(stulist);
+        sortStudentsOnGPA(tMap);
+        sortStudentsOnPriority(idList, hMap);
+        placePriorityLists(onePriorityList, optlist);
+        placePriorityLists(twoPriorityList, optlist);
+        placePriorityLists(threePriorityList, optlist);
+        placePriorityLists(fourPriorityList, optlist);
+        createNullList(onePriorityList, twoPriorityList, threePriorityList, fourPriorityList);
     }
+
+
 }

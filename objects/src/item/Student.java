@@ -23,7 +23,7 @@ public class Student {
 
     }
 
-    public Student(String id, String firstName, String lastName, int priority, double GPA, ArrayList<String> studentChoices, String assignedOptionOption, String status) {
+    public Student(String id, String firstName, String lastName, int priority, double GPA, ArrayList<String> studentChoices, String assignedOption, String status) {
         this.ID = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -60,42 +60,6 @@ public class Student {
 
     public ArrayList<String> getStudentChoices() {
         return studentChoices;
-    }
-
-    public String getStudentFirstChoice(){
-        if (studentChoices == null) {
-            return null;
-        } else {
-            String str = studentChoices.get(0);
-            return str;
-        }
-    }
-
-    public String getStudentSecondChoice(){
-        if (studentChoices == null) {
-            return null;
-        } else {
-            String str = studentChoices.get(1);
-            return str;
-        }
-    }
-
-    public String getStudentThirdChoice(){
-        if (studentChoices == null) {
-            return null;
-        } else {
-            String str = studentChoices.get(2);
-            return str;
-        }
-    }
-
-    public String getStudentFourthChoice(){
-        if (studentChoices == null) {
-            return null;
-        } else {
-            String str = studentChoices.get(3);
-            return str;
-        }
     }
 
     public void setPriority(int priority) {
