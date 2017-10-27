@@ -47,6 +47,15 @@ public class Options {
         }
     }
 
+    public void removeStudent(String studentName){
+        for(Student s:classList){
+            if (s.getName().equals(studentName)){
+                classList.remove(s);
+                break;
+            }
+        }
+    }
+
     public int getEmptySeats() {
         if(classList == null){
             return capacity;
@@ -58,5 +67,17 @@ public class Options {
 
     public void addStudentToList(Student stu){
         classList.add(stu);
+    }
+
+    public String checkStudentInClass(String studentName){
+        String checker="";
+
+        for(Student s:classList){
+            if(s.getName().equals(studentName)){
+                checker = "pos";
+                break;
+            }
+        }
+        return checker;
     }
 }
