@@ -49,7 +49,6 @@ public class Placement {
         ArrayList<Student> three = threePriorityList;
         ArrayList<Student> four = fourPriorityList;
 
-
         for(Student stu:one){
             if(stu.getAssignedOption().equals("NOTHING")){
                 nullList.add(stu);

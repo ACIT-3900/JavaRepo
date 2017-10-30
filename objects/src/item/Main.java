@@ -189,8 +189,8 @@ public class Main {
         System.out.println("Student Menu");
         System.out.println("A) View all students");
         System.out.println("B) View student's who were not placed");
-        System.out.println("B) Search for a student");
-        System.out.println("C) Go back");
+        System.out.println("C) Search for a student");
+        System.out.println("D) Go back");
         System.out.println("Q) Quit");
     }
     //Prints all student information
@@ -204,6 +204,12 @@ public class Main {
                     "Student Reason: "+stu.getReason()+"\n"+
                     "Student Assigned Option: "+stu.getAssignedOption()+"\n"+
                     "Student Choices: "+stu.getStudentChoices());
+        }
+    }
+    //Prints all student's who did not get placed into Option course
+    public static void NullStudents(HashSet<Student> nullList){
+        for(Student stu:nullList){
+            System.out.println("Student Name: "+stu.getName()+"\n"+"Reason: "+stu.getReason());
         }
     }
     //Prints specified student information
@@ -225,6 +231,36 @@ public class Main {
             }
         }
     }
+    //Add student to Option course
+    public static void AddStudent(Student stu, ArrayList<Options> optlist, HashSet<Student> nullList){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Please enter Option name you'd like to add the student to");
+        String answer = scan.nextLine();
+        for(Options opt:optlist){
+            if(answer.equals(opt.getCourseName())){
+                stu.setAssignedOption(opt.getCourseName());
+                opt.addStudentToList(stu);
+                break;
+            }
+        }
+        for(Student nullStu:nullList){
+            if(stu.getName().equals(nullStu.getName())){
+                nullList.remove(stu);
+                break;
+            }
+        }
+    }
+    //Drops student from Option course
+    public static void DropStudent(Student stu, ArrayList<Options> optlist, HashSet<Student> nullList){
+        for(Options opt:optlist){
+            if(stu.getAssignedOption().equals(opt.getCourseName())){
+                opt.removeStudent(stu.getName());
+                stu.setAssignedOption("NOTHING");
+                nullList.add(stu);
+                break;
+            }
+        }
+    }
 
     //Option Menu Methods
     public static void OptionMenu(){
@@ -241,6 +277,45 @@ public class Main {
                     "Option Capacity: "+opt.getCapacity()+"\n"+
                     "Available Seats: "+opt.getEmptySeats()+"\n"+
                     "Class List: "+opt.getClassList());
+        }
+    }
+    //Prints specified Option information
+    public static void SearchOption(ArrayList<Options> optlist){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Please enter Option name");
+        String answer = scan.nextLine();
+        for(Options opt:optlist){
+            if(answer.equals(opt.getCourseName())){
+                System.out.println("Option Name: "+opt.getCourseName()+"\n"+
+                        "Option Capacity: "+opt.getCapacity()+"\n"+
+                        "Available Seats: "+opt.getEmptySeats()+"\n"+
+                        "Class List: "+opt.getClassList());
+                break;
+            }
+        }
+    }
+    //Adds a student to Option course
+    public static void AddStudentToOption(Options opt, ArrayList<Student> stulist, HashSet<Student> nullList){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Please enter name of student");
+        String answer = scan.nextLine();
+        for(Student stu:stulist){
+            if(answer.equals(stu.getName())){
+                if(stu.getAssignedOption().equals("NOTHING")){
+                    opt.addStudentToList(stu);
+                    for(Student nullStu:nullList){
+                        if(nullStu.getName().equals(stu.getName())){
+                            nullList.remove(stu);
+                        }
+                    }
+                    break;
+                }else{
+                    System.out.println("Student is currently assigned to "+stu.getAssignedOption());
+                    System.out.println("Please confirm if you would like to remove student from this course and add them to new one");
+                    System.out.println("A) Yes");
+                    System.out.println("B) No");
+                }
+            }
         }
     }
 }
