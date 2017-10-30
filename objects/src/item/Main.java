@@ -30,7 +30,6 @@ public class Main {
             System.out.println("E) View students in Information Systems course");
             System.out.println("F) View students who would like to wait for January term");
             System.out.println("G) View students who did not get placed in a course");
-
             String answer = scan.nextLine();
 
             while(!answer.equals("q")){
@@ -114,6 +113,7 @@ public class Main {
     }
 
     public static void ReadOptionList(ArrayList <Options> optlist, String filename)throws IOException{
+
         BufferedReader br;
         String line;
         br = new BufferedReader(new FileReader(filename));
@@ -150,7 +150,7 @@ public class Main {
                 studentChoices.add(studentInfo[8]);
 
                 //Save details
-                Student stu = new Student(studentInfo[0], studentInfo[1], studentInfo[2], Integer.parseInt(studentInfo[3]), 0, studentChoices, "", studentInfo[4]);
+                Student stu = new Student(studentInfo[0], studentInfo[1], studentInfo[2], Integer.parseInt(studentInfo[3]), 0, studentChoices, "", studentInfo[4], "");
                 stulist.add(stu);
             }
         }
@@ -165,13 +165,155 @@ public class Main {
         while ((line = br.readLine()) != null){
             String[] studentInfo = line.split(COMMA_DELIMITER);
             if(studentInfo.length>0){
-
-                for (Student s : stulist) {
+                for (Student s:stulist) {
                     if(s.getID().equals(studentInfo[0])){
                         Double dbl = Double.parseDouble(studentInfo[1]);
                         s.setGPA(dbl);
                         break;
                     }
+                }
+            }
+        }
+    }
+
+    //Admin Menu Methods
+    public static void AdminMenu(){
+        System.out.println("Administrator Menu");
+        System.out.println("A) View Student Information");
+        System.out.println("B) View Options Information");
+        System.out.println("Q) Quit");
+    }
+
+    //Student Menu Methods
+    public static void StudentMenu(){
+        System.out.println("Student Menu");
+        System.out.println("A) View all students");
+        System.out.println("B) View student's who were not placed");
+        System.out.println("C) Search for a student");
+        System.out.println("D) Go back");
+        System.out.println("Q) Quit");
+    }
+    //Prints all student information
+    public static void ViewStudents(ArrayList<Student> stulist){
+        for(Student stu:stulist){
+            System.out.println("Student ID: "+stu.getID()+"\n"+
+                    "Student Name: "+stu.getName()+"\n"+
+                    "Student GPA: "+stu.getGPA()+"\n"+
+                    "Student Priority: "+stu.getPriority()+"\n"+
+                    "Student Status: "+stu.getStatus()+"\n"+
+                    "Student Reason: "+stu.getReason()+"\n"+
+                    "Student Assigned Option: "+stu.getAssignedOption()+"\n"+
+                    "Student Choices: "+stu.getStudentChoices());
+        }
+    }
+    //Prints all student's who did not get placed into Option course
+    public static void NullStudents(HashSet<Student> nullList){
+        for(Student stu:nullList){
+            System.out.println("Student Name: "+stu.getName()+"\n"+"Reason: "+stu.getReason());
+        }
+    }
+    //Prints specified student information
+    public static void SearchStudent(ArrayList<Student> stulist){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Please enter student's name");
+        String answer = scan.nextLine();
+        for(Student stu:stulist){
+            if(answer.equals(stu.getName())){
+                System.out.println("Student ID: "+stu.getID()+"\n"+
+                        "Student Name: "+stu.getName()+"\n"+
+                        "Student GPA: "+stu.getGPA()+"\n"+
+                        "Student Priority: "+stu.getPriority()+"\n"+
+                        "Student Status: "+stu.getStatus()+"\n"+
+                        "Student Reason: "+stu.getReason()+"\n"+
+                        "Student Assigned Option: "+stu.getAssignedOption()+"\n"+
+                        "Student Choices: "+stu.getStudentChoices());
+                break;
+            }
+        }
+    }
+    //Add student to Option course
+    public static void AddStudent(Student stu, ArrayList<Options> optlist, HashSet<Student> nullList){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Please enter Option name you'd like to add the student to");
+        String answer = scan.nextLine();
+        for(Options opt:optlist){
+            if(answer.equals(opt.getCourseName())){
+                stu.setAssignedOption(opt.getCourseName());
+                opt.addStudentToList(stu);
+                break;
+            }
+        }
+        for(Student nullStu:nullList){
+            if(stu.getName().equals(nullStu.getName())){
+                nullList.remove(stu);
+                break;
+            }
+        }
+    }
+    //Drops student from Option course
+    public static void DropStudent(Student stu, ArrayList<Options> optlist, HashSet<Student> nullList){
+        for(Options opt:optlist){
+            if(stu.getAssignedOption().equals(opt.getCourseName())){
+                opt.removeStudent(stu.getName());
+                stu.setAssignedOption("NOTHING");
+                nullList.add(stu);
+                break;
+            }
+        }
+    }
+
+    //Option Menu Methods
+    public static void OptionMenu(){
+        System.out.println("Option Menu");
+        System.out.println("A) View list of Options");
+        System.out.println("B) Search for an Option course");
+        System.out.println("C) Go back");
+        System.out.println("Q) Quit");
+    }
+    //Prints all Options information
+    public static void ViewOptions(ArrayList<Options> optlist){
+        for(Options opt:optlist){
+            System.out.println("Option Name: "+opt.getCourseName()+"\n"+
+                    "Option Capacity: "+opt.getCapacity()+"\n"+
+                    "Available Seats: "+opt.getEmptySeats()+"\n"+
+                    "Class List: "+opt.getClassList());
+        }
+    }
+    //Prints specified Option information
+    public static void SearchOption(ArrayList<Options> optlist){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Please enter Option name");
+        String answer = scan.nextLine();
+        for(Options opt:optlist){
+            if(answer.equals(opt.getCourseName())){
+                System.out.println("Option Name: "+opt.getCourseName()+"\n"+
+                        "Option Capacity: "+opt.getCapacity()+"\n"+
+                        "Available Seats: "+opt.getEmptySeats()+"\n"+
+                        "Class List: "+opt.getClassList());
+                break;
+            }
+        }
+    }
+    //Adds a student to Option course
+    public static void AddStudentToOption(Options opt, ArrayList<Student> stulist, HashSet<Student> nullList){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Please enter name of student");
+        String answer = scan.nextLine();
+        for(Student stu:stulist){
+            if(answer.equals(stu.getName())){
+                if(stu.getAssignedOption().equals("NOTHING")){
+                    opt.addStudentToList(stu);
+                    for(Student nullStu:nullList){
+                        if(nullStu.getName().equals(stu.getName())){
+                            nullList.remove(stu);
+                        }
+                    }
+                    break;
+                }else{
+                    System.out.println("Student is currently assigned to "+stu.getAssignedOption());
+                    System.out.println("Please confirm if you would like to remove student from this course and add them to new one");
+                    System.out.println("A) Yes");
+                    System.out.println("B) No");
                 }
             }
         }
