@@ -18,16 +18,17 @@ public class ReadCSVFile {
             StudentPlacement splace = new StudentPlacement(stulist, optionlist);
             splace.displayGPA();
 
-//            //Print Student List
-//            for(Student s:stulist){
-//                System.out.println(s.getID()+"\n"+s.getName()+"\nGPA: "+s.getGPA()+"\n"+s.getPriority()+"\n"+s.getStatus()+"\n"+s.printStudentChoices());
-//                System.out.println("---------***--------");
-//            }
 
-            for(Options o:optionlist){
-                System.out.println("Option Name: "+o.getOptionName()+"\nOption Capacity: "+o.getCapacity()+"\nAvailable:"+o.getEmptySeats()+"\nClass List:"+o.getClassList());
+//            //Print Student List
+            for(Student s:stulist){
+                System.out.println(s.getID()+"\n"+s.getName()+"\nGPA: "+s.getGPA()+"\n"+s.getPriority()+"\n"+s.getStatus()+"\n"+s.printStudentChoices());
                 System.out.println("---------***--------");
             }
+
+//            for(Options o:optionlist){
+//                System.out.println("Option Name: "+o.getOptionName()+"\nOption Capacity: "+o.getCapacity()+"\nAvailable:"+o.getEmptySeats()+"\nClass List:"+o.getClassList());
+//                System.out.println("---------***--------");
+//            }
 
         }
         catch(Exception ee){
