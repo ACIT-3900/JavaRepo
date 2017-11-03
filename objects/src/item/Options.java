@@ -9,8 +9,11 @@ public class Options {
     private int capacity;
     private ArrayList<Student> classList = new ArrayList<>();
 
+    public Options(){
+        this.courseName = "";
+        this.capacity = 0;
+    }
     public Options(String courseName, int capacity) {
-
         this.courseName = courseName;
         this.capacity = capacity;
     }
@@ -59,11 +62,10 @@ public class Options {
     public void addStudentToList(Student stu){
         classList.add(stu);
     }
-    public String checkStudentInClass(String studentName){
+    public String checkStudentInClass(String stuID){
         String checker="";
-
         for(Student s:classList){
-            if(s.getName().equals(studentName)){
+            if(s.getID().equals(stuID)){
                 checker = "pos";
                 break;
             }
