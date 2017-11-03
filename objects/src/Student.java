@@ -37,11 +37,6 @@ public class Student {
         this.studentChoices = studentChoices;
     }
 
-    Student(String firstName, String lastName){
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
     String getFirstName() {
         return firstName;
     }

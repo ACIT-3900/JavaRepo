@@ -9,32 +9,26 @@ public class Options {
     private int capacity;
     private ArrayList<Student> classList = new ArrayList<>();
 
+    public Options(){
+        this.courseName = "";
+        this.capacity = 0;
+    }
     public Options(String courseName, int capacity) {
-
         this.courseName = courseName;
         this.capacity = capacity;
     }
-
-    public void setCourseName(String courseName){
-        this.courseName = courseName;
-    }
-
-    public void setCapacity(int capacity){
-        this.capacity = capacity;
-    }
-
-    public void setClassList(ArrayList<Student> newClassList){
-        this.classList = newClassList;
-    }
-
-    public String getCourseName(){
-        return courseName;
-    }
-
     public int getCapacity(){
         return capacity;
     }
-
+    public void setCapacity(int capacity){
+        this.capacity = capacity;
+    }
+    public String getCourseName(){
+        return courseName;
+    }
+    public void setCourseName(String courseName){
+        this.courseName = courseName;
+    }
     public String getClassList(){
         if (classList == null) {
             return null;
@@ -46,7 +40,9 @@ public class Options {
             return str;
         }
     }
-
+    public void setClassList(ArrayList<Student> newClassList){
+        this.classList = newClassList;
+    }
     public int getEmptySeats() {
         if(classList == null){
             return capacity;
@@ -55,8 +51,25 @@ public class Options {
             return capacity - classList.size();
         }
     }
-
+    public void removeStudent(String studentName){
+        for(Student s:classList){
+            if (s.getName().equals(studentName)){
+                classList.remove(s);
+                break;
+            }
+        }
+    }
     public void addStudentToList(Student stu){
         classList.add(stu);
+    }
+    public String checkStudentInClass(String stuID){
+        String checker="";
+        for(Student s:classList){
+            if(s.getID().equals(stuID)){
+                checker = "pos";
+                break;
+            }
+        }
+        return checker;
     }
 }
