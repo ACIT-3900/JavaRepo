@@ -24,15 +24,19 @@ public class Main {
             //Set List of Null Student IDs
             Set<String> nullStuID = new HashSet<String>();
 
+            //Reads files in
             ReadOptionList(optlist, "OptionSelectionControl.csv", optName);
             ReadStudentChoices(stulist, "StudentChoices.csv");
             ReadStudentGPA(stulist, "StudentGPA.csv", stuID);
+            //Performs all functions required to sort students into their Option course
             Placement place = new Placement(stulist, optlist, nullList);
             place.displayGPA();
             CreateNullStudentIDLIst(nullStuID, nullList);
 
+            //Scans in new user input
             Scanner scan = new Scanner(System.in);
             AdminMenu();
+            //Sets String answer as variable of next user input
             String answer = scan.nextLine();
             while(!answer.equals("q") || !answer.equals("quit")){
                 if("a".equals(answer)){
@@ -72,6 +76,7 @@ public class Main {
                 AdminMenu();
                 answer = scan.nextLine();
             }
+            //Closes scanning of user input
             scan.close();
         }
         catch(Exception ee){
@@ -162,6 +167,8 @@ public class Main {
         System.out.println("Q) Quit");
     }
 
+
+    //All functions for Student Menu side
     //Student Menu Method
     public static void StudentMenu(){
         System.out.println("Student Menu");
@@ -259,6 +266,8 @@ public class Main {
         }
     }
 
+
+    //All functions for Option Menu side
     //Option Menu Methods
     public static void OptionMenu(){
         System.out.println("Option Menu");
