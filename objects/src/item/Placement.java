@@ -14,6 +14,45 @@ public class Placement {
     ArrayList<Student> threePriorityList = new ArrayList<>();
     ArrayList<Student> fourPriorityList = new ArrayList<>();
 
+    //What is the average GPA of all students
+    public void averageGPA(ArrayList<Student> stulist){
+        Double gpa = 0.0;
+        int numberOfStudents = 0;
+        double totalGPA = 0.0;
+        for(Student stu:stulist){
+            gpa += stu.getGPA();
+            numberOfStudents++;
+        }
+        totalGPA = Math.round((gpa/numberOfStudents)*100);
+        System.out.println("Average GPA of All Students: "+ totalGPA/100+"%");
+    }
+
+    public void totalStudents(ArrayList<Student> stulist){
+        int numberOfStudents = 0;
+        for(Student stu:stulist){
+            numberOfStudents++;
+        }
+        System.out.println("Total Number of Students: "+ numberOfStudents);
+    }
+
+    public void groupPriority(ArrayList<Student> stulist){
+            int priorityA = 0;
+            int priorityB = 0;
+            int otherPriority = 0;
+            for(Student stu:stulist) {
+                if (stu.getPriority() == 1) {
+                    priorityA++;
+                } else if (stu.getPriority() == 2) {
+                    priorityB++;
+                } else {
+                    otherPriority = 0;
+                }
+            }
+            System.out.println("Students with Priority Level 1: " +priorityA);
+            System.out.println("Students with Priority Level 2: " +priorityB);
+            //System.out.println("Students with No Priority Level: " +otherPriority);
+    }
+
     public Placement(ArrayList<Student> stulist, ArrayList<Options> optlist, HashSet<Student> nullList){
         this.stulist = stulist;
         this.optlist = optlist;
