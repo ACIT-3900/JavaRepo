@@ -28,7 +28,11 @@ public class Main {
             ReadStudentChoices(stulist, "StudentChoices.csv");
             ReadStudentGPA(stulist, "StudentGPA.csv", stuID);
             Placement place = new Placement(stulist, optlist, nullList);
+            System.out.println("Speadsheet Statistics");
             place.displayGPA();
+            place.averageGPA(stulist);
+            place.totalStudents(stulist);
+            place.groupPriority(stulist);
             CreateNullStudentIDLIst(nullStuID, nullList);
 
             Scanner scan = new Scanner(System.in);

@@ -16,7 +16,9 @@ class StudentPlacement{
     }
 
     private void sortStudentsOnGPA(ArrayList<Student> stulist){
-        Collections.sort(stulist, Comparator.comparing(Student::getGPA).reversed());
+        if (stulist != null) {
+            Collections.sort(stulist, Comparator.comparing(Student::getGPA).reversed());
+        }
     }
 
     private void sortStudentsOnPriority(ArrayList<Student> stulist){
