@@ -28,11 +28,14 @@ public class Main {
             ReadStudentChoices(stulist, "StudentChoices.csv");
             ReadStudentGPA(stulist, "StudentGPA.csv", stuID);
             Placement place = new Placement(stulist, optlist, nullList);
-            System.out.println("Speadsheet Statistics");
+            System.out.println("SPREADSHEET STATISTICS");
             place.displayGPA();
             place.averageGPA(stulist);
+            place.highestGPA(stulist);
+            place.lowestGPA(stulist);
             place.totalStudents(stulist);
             place.groupPriority(stulist);
+            System.out.println();
             CreateNullStudentIDLIst(nullStuID, nullList);
 
             Scanner scan = new Scanner(System.in);

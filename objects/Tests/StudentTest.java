@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 public class StudentTest {
     ArrayList<String> choices = new ArrayList<>();
 
-    Student stu = new Student("A00123456", "Rodney", "Thandi", 1, "", choices);
+    Student stu = new Student("A00123456", "Roy", "Li", 1, "", choices);
 
     @org.junit.Test
     public void getID() throws Exception {
@@ -16,19 +16,19 @@ public class StudentTest {
     @org.junit.Test
     public void getFirstName() throws Exception {
 
-        assertEquals("Rodney", stu.getFirstName());
+        assertEquals("Roy", stu.getFirstName());
     }
 
     @org.junit.Test
     public void getLastName() throws Exception {
 
-        assertEquals("Thandi", stu.getLastName());
+        assertEquals("Li", stu.getLastName());
     }
 
     @org.junit.Test
     public void getName() throws Exception {
 
-        assertEquals("Rodney Thandi", stu.getName());
+        assertEquals("Roy Li", stu.getName());
     }
 
     @org.junit.Test
