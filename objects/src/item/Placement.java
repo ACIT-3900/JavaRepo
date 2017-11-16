@@ -27,6 +27,26 @@ public class Placement {
         System.out.println("Average GPA of All Students: "+ totalGPA/100+"%");
     }
 
+    public void lowestGPA(ArrayList<Student> stulist){
+        double lowestGPA = 100.0;
+        for(Student stu:stulist) {
+            if (stu.getGPA() < lowestGPA) {
+                lowestGPA = stu.getGPA();
+            }
+        }
+        System.out.println("Lowest GPA: "+ lowestGPA+"%");
+    }
+
+    public void highestGPA(ArrayList<Student> stulist){
+        double highestGPA = 0.0;
+        for(Student stu:stulist) {
+            if (stu.getGPA() > highestGPA) {
+                highestGPA = stu.getGPA();
+            }
+        }
+        System.out.println("Highest GPA: "+ highestGPA+"%");
+    }
+
     public void totalStudents(ArrayList<Student> stulist){
         int numberOfStudents = 0;
         for(Student stu:stulist){
