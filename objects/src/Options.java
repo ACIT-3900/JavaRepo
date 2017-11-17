@@ -1,4 +1,3 @@
-package item;
 import java.util.ArrayList;
 
 /**
@@ -9,34 +8,26 @@ public class Options {
     private int capacity;
     private ArrayList<Student> classList = new ArrayList<>();
 
-    //Default constructor
     public Options(){
         this.courseName = "";
         this.capacity = 0;
     }
-    //Not Default constructor
     public Options(String courseName, int capacity) {
         this.courseName = courseName;
         this.capacity = capacity;
     }
-    //Returns capacity of Option course
-    public int getCapacity(){
+
+    /* GETTERS */
+
+    int getCapacity(){
         return capacity;
     }
-    //Sets capacity of Option course
-    public void setCapacity(int capacity){
-        this.capacity = capacity;
-    }
-    //Returns name of Option course
-    public String getCourseName(){
+
+    String getCourseName(){
         return courseName;
     }
-    //Sets name of Option course
-    public void setCourseName(String courseName){
-        this.courseName = courseName;
-    }
-    //Returns class list of Option course
-    public String getClassList(){
+
+    String getClassList(){
         if (classList == null) {
             return null;
         } else {
@@ -47,21 +38,24 @@ public class Options {
             return str;
         }
     }
-    //Sets class list of Option course
+
+    /* SETTERS */
+
+    public void setCapacity(int capacity){
+        this.capacity = capacity;
+    }
+
+    public void setCourseName(String courseName){
+        this.courseName = courseName;
+    }
+
     public void setClassList(ArrayList<Student> newClassList){
         this.classList = newClassList;
     }
-    //Returns all empty seats of the Option course
-    public int getEmptySeats() {
-        if(classList == null){
-            return capacity;
-        }
-        else{
-            return capacity - classList.size();
-        }
-    }
-    //Removes student from Option course
-    public void removeStudent(String studentName){
+
+    /* FUNCTIONS */
+
+    void removeStudent(String studentName){
         for(Student s:classList){
             if (s.getName().equals(studentName)){
                 classList.remove(s);
@@ -69,12 +63,12 @@ public class Options {
             }
         }
     }
-    //Adds student to class list of Option course
-    public void addStudentToList(Student stu){
+
+    void addStudentToList(Student stu){
         classList.add(stu);
     }
-    //Checks if student is in Option course
-    public String checkStudentInClass(String stuID){
+
+    String checkStudentInClass(String stuID){
         String checker="";
         for(Student s:classList){
             if(s.getID().equals(stuID)){
@@ -84,4 +78,14 @@ public class Options {
         }
         return checker;
     }
+
+    int getEmptySeats() {
+        if(classList == null){
+            return capacity;
+        }
+        else{
+            return capacity - classList.size();
+        }
+    }
+
 }

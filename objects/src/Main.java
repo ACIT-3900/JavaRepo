@@ -1,4 +1,3 @@
-package item;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
@@ -28,10 +27,22 @@ public class Main {
             ReadOptionList(optlist, "OptionSelectionControl.csv", optName);
             ReadStudentChoices(stulist, "StudentChoices.csv");
             ReadStudentGPA(stulist, "StudentGPA.csv", stuID);
+<<<<<<< HEAD:objects/src/item/Main.java
             //Performs all functions required to sort students into their Option course
             Placement place = new Placement(stulist, optlist, nullList);
             place.displayGPA();
             place.averageGPA(stulist);
+=======
+            StudentPlacement place = new StudentPlacement(stulist, optlist, nullList);
+            System.out.println("SPREADSHEET STATISTICS");
+            place.displayGPA();
+            place.averageGPA(stulist);
+            place.highestGPA(stulist);
+            place.lowestGPA(stulist);
+            place.totalStudents(stulist);
+            place.groupPriority(stulist);
+            System.out.println();
+>>>>>>> 12bed8678b2bb65224f0b0c400d411fc963715ec:objects/src/Main.java
             CreateNullStudentIDLIst(nullStuID, nullList);
 
             //Scans in new user input
@@ -102,6 +113,7 @@ public class Main {
             }
         }
     }
+
     //Reads Student Choice CSV file and creates Student objects
     public static void ReadStudentChoices(ArrayList<Student> stulist, String filename) throws IOException {
 
@@ -131,6 +143,7 @@ public class Main {
             }
         }
     }
+
     //Reads Student GPA CSV file and adds GPA to Student objects
     public static void ReadStudentGPA(ArrayList<Student> stulist, String filename, Set<String> stuID) throws IOException {
 
@@ -153,6 +166,7 @@ public class Main {
             }
         }
     }
+
     //Creates a Set List of null Student IDs
     public static void CreateNullStudentIDLIst(Set<String> nullStuID, HashSet<Student> nullList){
         for(Student stu:nullList){
@@ -178,6 +192,7 @@ public class Main {
         System.out.println("C) Search for a student");
         System.out.println("D) Go back");
     }
+
     //Prints all student information
     public static void ViewStudents(ArrayList<Student> stulist){
         for(Student stu:stulist){
@@ -192,6 +207,7 @@ public class Main {
             System.out.println("*-------------------------------------*");
         }
     }
+
     //Prints all student's who did not get placed into Option course
     public static void NullStudents(HashSet<Student> nullList){
         for(Student stu:nullList){
@@ -199,6 +215,7 @@ public class Main {
             System.out.println("*-------------------------------------*");
         }
     }
+
     //Prints specified student information
     public static void SearchStudent(ArrayList<Student> stulist, Set<String> stuID, ArrayList<Options> optlist, HashSet<Student> nullList, Set<String> optName, Set<String> nullStuID){
         Scanner scan = new Scanner(System.in);
@@ -234,6 +251,7 @@ public class Main {
             System.out.println("Student does not exist");
         }
     }
+
     //Add student to Option course
     public static void AddStudent(Student stu, ArrayList<Options> optlist, HashSet<Student> nullList, Set<String> optName, Set<String> nullStuID){
         Scanner scan = new Scanner(System.in);
@@ -254,6 +272,7 @@ public class Main {
             }else{System.out.println("Student is a part of "+stu.getAssignedOption()+" class. Please remove student first before trying again.");}
         }else{System.out.println("That is not a valid Option course");}
     }
+
     //Drops student from Option course
     public static void DropStudent(Student stu, ArrayList<Options> optlist, HashSet<Student> nullList, Set<String> nullStuID){
         for(Options opt:optlist){
@@ -276,6 +295,7 @@ public class Main {
         System.out.println("B) Search for an Option course");
         System.out.println("C) Go back");
     }
+
     //Prints all Options information
     public static void ViewOptions(ArrayList<Options> optlist){
         for(Options opt:optlist){
@@ -286,6 +306,7 @@ public class Main {
                     "Class List: "+opt.getClassList());
         }
     }
+
     //Prints specified Option information
     public static void SearchOption(ArrayList<Options> optlist, ArrayList<Student> stulist, HashSet<Student> nullList, Set<String> stuID, Set<String> nullStuID){
         Scanner scan = new Scanner(System.in);
@@ -314,6 +335,7 @@ public class Main {
             }
         }
     }
+
     //Adds a student to Option course
     public static void AddStudentToOption(Options opt, ArrayList<Student> stulist, HashSet<Student> nullList, Set<String> stuID, Set<String> nullStuID){
         Scanner scan = new Scanner(System.in);
@@ -342,6 +364,7 @@ public class Main {
             System.out.println("Student is not eligible for Options");
         }
     }
+
     //Drop student from Option course
     public static void DropStudentFromOption(Options opt, ArrayList<Student> stulist, HashSet<Student> nullList, Set<String> nullStuID, Set<String> stuID){
         Scanner scan = new Scanner(System.in);
@@ -364,4 +387,5 @@ public class Main {
             System.out.println("Student does not exist");
         }
     }
+
 }

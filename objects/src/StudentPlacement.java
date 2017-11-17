@@ -1,10 +1,9 @@
-package item;
 import java.util.*;
 
 /**
  * Created by rodne on 2017-10-19.
  */
-public class Placement {
+public class StudentPlacement {
 
     private ArrayList<Student> stulist;
     private ArrayList<Options> optlist;
@@ -17,28 +16,72 @@ public class Placement {
     //What is the average GPA of all students
     public void averageGPA(ArrayList<Student> stulist){
         Double gpa = 0.0;
-        int numberOfStudents = 1;
+        int numberOfStudents = 0;
+        double totalGPA = 0.0;
         for(Student stu:stulist){
             gpa += stu.getGPA();
             numberOfStudents++;
         }
-        System.out.println(gpa/numberOfStudents);
+        totalGPA = Math.round((gpa/numberOfStudents)*100);
+        System.out.println("Average GPA of All Students: "+ totalGPA/100+"%");
     }
 
+    public void lowestGPA(ArrayList<Student> stulist){
+        double lowestGPA = 100.0;
+        for(Student stu:stulist) {
+            if (stu.getGPA() < lowestGPA) {
+                lowestGPA = stu.getGPA();
+            }
+        }
+        System.out.println("Lowest GPA: "+ lowestGPA+"%");
+    }
 
+    public void highestGPA(ArrayList<Student> stulist){
+        double highestGPA = 0.0;
+        for(Student stu:stulist) {
+            if (stu.getGPA() > highestGPA) {
+                highestGPA = stu.getGPA();
+            }
+        }
+        System.out.println("Highest GPA: "+ highestGPA+"%");
+    }
 
+    public void totalStudents(ArrayList<Student> stulist){
+        int numberOfStudents = 0;
+        for(Student stu:stulist){
+            numberOfStudents++;
+        }
+        System.out.println("Total Number of Students: "+ numberOfStudents);
+    }
 
-    //Not default Constructor
-    public Placement(ArrayList<Student> stulist, ArrayList<Options> optlist, HashSet<Student> nullList){
+    public void groupPriority(ArrayList<Student> stulist){
+            int priorityA = 0;
+            int priorityB = 0;
+            int otherPriority = 0;
+            for(Student stu:stulist) {
+                if (stu.getPriority() == 1) {
+                    priorityA++;
+                } else if (stu.getPriority() == 2) {
+                    priorityB++;
+                } else {
+                    otherPriority = 0;
+                }
+            }
+            System.out.println("Students with Priority Level 1: " +priorityA);
+            System.out.println("Students with Priority Level 2: " +priorityB);
+            //System.out.println("Students with No Priority Level: " +otherPriority);
+    }
+
+    public StudentPlacement(ArrayList<Student> stulist, ArrayList<Options> optlist, HashSet<Student> nullList){
         this.stulist = stulist;
         this.optlist = optlist;
         this.nullList = nullList;
     }
-    //Function to sort students in ArrayList based on their GPA
+
     private void sortStudentsOnGPA(ArrayList<Student> stulist){
         Collections.sort(stulist, Comparator.comparing(Student::getGPA).reversed());
     }
-    //Function to sort students into ArrayList based on their priority level
+
     private void sortStudentsOnPriority(ArrayList<Student> stulist){
         for (Student s:stulist) {
             switch(s.getPriority()){
@@ -60,7 +103,7 @@ public class Placement {
             }
         }
     }
-    //If students do not get placed and their assigned option is listed as "NOTHING", place student in a null list
+
     private void createNullList(ArrayList<Student> onePriorityList, ArrayList<Student> twoPriorityList, ArrayList<Student> threePriorityList, ArrayList<Student> fourPriorityList){
         ArrayList<Student> one = onePriorityList;
         ArrayList<Student> two = twoPriorityList;
@@ -88,7 +131,7 @@ public class Placement {
             }
         }
     }
-    //Sorts students into their Option course
+
     private void placePriorityLists(ArrayList<Student> priorityList, ArrayList<Options> optlist) {
         for(Student stu:priorityList){
             if(stu.getStudentChoices().size()>0){
@@ -120,7 +163,7 @@ public class Placement {
             }
         }
     }
-    //Function to perform all functions above in the correct order
+
     public void displayGPA(){
         sortStudentsOnGPA(stulist);
         sortStudentsOnPriority(stulist);
@@ -130,4 +173,6 @@ public class Placement {
         placePriorityLists(fourPriorityList, optlist);
         createNullList(onePriorityList, twoPriorityList, threePriorityList, fourPriorityList);
     }
+
+
 }
