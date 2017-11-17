@@ -2,6 +2,7 @@ import java.util.*;
 
 /**
  * Created by rodne on 2017-10-19.
+ * Edited by Mike on 2017-11-17
  */
 public class StudentPlacement {
 
@@ -13,7 +14,7 @@ public class StudentPlacement {
     ArrayList<Student> threePriorityList = new ArrayList<>();
     ArrayList<Student> fourPriorityList = new ArrayList<>();
 
-    //What is the average GPA of all students
+    //Find the average GPA of all students
     public void averageGPA(ArrayList<Student> stulist){
         Double gpa = 0.0;
         int numberOfStudents = 0;
@@ -26,6 +27,7 @@ public class StudentPlacement {
         System.out.println("Average GPA of All Students: "+ totalGPA/100+"%");
     }
 
+    //Find the lowest GPA of all student
     public void lowestGPA(ArrayList<Student> stulist){
         double lowestGPA = 100.0;
         for(Student stu:stulist) {
@@ -36,6 +38,7 @@ public class StudentPlacement {
         System.out.println("Lowest GPA: "+ lowestGPA+"%");
     }
 
+    //Find the highest GPA of all students
     public void highestGPA(ArrayList<Student> stulist){
         double highestGPA = 0.0;
         for(Student stu:stulist) {
@@ -46,6 +49,7 @@ public class StudentPlacement {
         System.out.println("Highest GPA: "+ highestGPA+"%");
     }
 
+    //Find total number of students on the list
     public void totalStudents(ArrayList<Student> stulist){
         int numberOfStudents = 0;
         for(Student stu:stulist){
@@ -54,6 +58,7 @@ public class StudentPlacement {
         System.out.println("Total Number of Students: "+ numberOfStudents);
     }
 
+    //Find out how many people are in each priority and number of people who does not have either priority 1 or 2
     public void groupPriority(ArrayList<Student> stulist){
             int priorityA = 0;
             int priorityB = 0;
@@ -69,7 +74,7 @@ public class StudentPlacement {
             }
             System.out.println("Students with Priority Level 1: " +priorityA);
             System.out.println("Students with Priority Level 2: " +priorityB);
-            //System.out.println("Students with No Priority Level: " +otherPriority);
+            System.out.println("Students with Other Priority Level: " +otherPriority);
     }
 
     public StudentPlacement(ArrayList<Student> stulist, ArrayList<Options> optlist, HashSet<Student> nullList){
