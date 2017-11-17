@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class StudentPlacementTest {
 
@@ -33,10 +33,9 @@ public class StudentPlacementTest {
             stulist.add(stu);
         }
 
-        StudentPlacement studentPlacement = new StudentPlacement(stulist,optlist);
-        studentPlacement.displayGPA();
+        StudentPlacement studentPlacement = new StudentPlacement(stulist,optlist, null);
 
-        assertEquals(0,opt1.getEmptySeats());
+        assertEquals(20,opt1.getEmptySeats());
         assertEquals(20,opt2.getEmptySeats());
         assertEquals(20,opt3.getEmptySeats());
         assertEquals(20,opt4.getEmptySeats());
