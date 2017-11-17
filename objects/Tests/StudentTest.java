@@ -40,7 +40,7 @@ public class StudentTest {
     @org.junit.Test
     public void getGPA() throws Exception {
 
-        assertEquals(null, stu.getGPA());
+        assertEquals(0, stu.getGPA(),0);
     }
 
     @org.junit.Test
@@ -67,6 +67,6 @@ public class StudentTest {
     @org.junit.Test
     public void getStatus() throws Exception {
 
-        assertEquals("Eligible", stu.getStatus());
+        assertEquals("", stu.getStatus());
     }
 }
