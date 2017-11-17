@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
- * Created by rodne on 2017-10-11.
+ * Created by rodney on 2017-10-11.
  */
 public class Options {
     private String optionName;
@@ -33,15 +33,20 @@ public class Options {
         return capacity;
     }
 
-    String getClassList(){
+    ArrayList<Student> getClassList(){
+//        if (classList == null) {
+//            return null;
+//        } else {
+//            String str = "";
+//            for (int i = 0; i < classList.size(); i++) {
+//                str += classList.get(i).getID() + "\t";
+//            }
+//            return str;
+
         if (classList == null) {
             return null;
         } else {
-            String str = "";
-            for (int i = 0; i < classList.size(); i++) {
-                str += classList.get(i).getID() + "\t";
-            }
-            return str;
+            return classList;
         }
     }
 
@@ -53,4 +58,5 @@ public class Options {
     void addToClassList(Student stu){
         classList.add(stu);
     }
+
 }
