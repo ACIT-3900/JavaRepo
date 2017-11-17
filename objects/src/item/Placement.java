@@ -14,6 +14,20 @@ public class Placement {
     ArrayList<Student> threePriorityList = new ArrayList<>();
     ArrayList<Student> fourPriorityList = new ArrayList<>();
 
+    //What is the average GPA of all students
+    public void averageGPA(ArrayList<Student> stulist){
+        Double gpa = 0.0;
+        int numberOfStudents = 1;
+        for(Student stu:stulist){
+            gpa += stu.getGPA();
+            numberOfStudents++;
+        }
+        System.out.println(gpa/numberOfStudents);
+    }
+
+
+
+
     //Not default Constructor
     public Placement(ArrayList<Student> stulist, ArrayList<Options> optlist, HashSet<Student> nullList){
         this.stulist = stulist;

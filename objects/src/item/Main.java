@@ -31,6 +31,7 @@ public class Main {
             //Performs all functions required to sort students into their Option course
             Placement place = new Placement(stulist, optlist, nullList);
             place.displayGPA();
+            place.averageGPA(stulist);
             CreateNullStudentIDLIst(nullStuID, nullList);
 
             //Scans in new user input
