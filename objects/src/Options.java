@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
- * Created by rodne on 2017-10-11.
+ * Created by rodney on 2017-10-11.
  */
 public class Options {
     private String courseName;
@@ -87,5 +87,4 @@ public class Options {
             return capacity - classList.size();
         }
     }
-
 }

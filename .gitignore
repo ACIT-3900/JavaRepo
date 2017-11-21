@@ -33,5 +33,6 @@ objects/OptionList.csv
 .project
 objects/~$nual Test Documentation.docx
 objects/objects.iml
+*.DS_Store
 
 /bin/
