@@ -1,18 +1,17 @@
 import java.util.*;
 
-/**
- * Created by rodne on 2017-10-19.
- */
 public class StudentPlacement {
 
     private ArrayList<Student> stulist;
     private ArrayList<Options> optlist;
     private HashSet<Student> nullList;
+    private ArrayList<Student> probStuList;
     ArrayList<Student> onePriorityList = new ArrayList<>();
     ArrayList<Student> twoPriorityList = new ArrayList<>();
     ArrayList<Student> threePriorityList = new ArrayList<>();
     ArrayList<Student> fourPriorityList = new ArrayList<>();
 
+    //START
     //What is the average GPA of all students
     public void averageGPA(ArrayList<Student> stulist){
         Double gpa = 0.0;
@@ -71,11 +70,30 @@ public class StudentPlacement {
             System.out.println("Students with Priority Level 2: " +priorityB);
             //System.out.println("Students with No Priority Level: " +otherPriority);
     }
+    //END
 
-    public StudentPlacement(ArrayList<Student> stulist, ArrayList<Options> optlist, HashSet<Student> nullList){
+    public StudentPlacement(ArrayList<Student> stulist, ArrayList<Options> optlist, HashSet<Student> nullList, ArrayList<Student> probStuList){
         this.stulist = stulist;
         this.optlist = optlist;
         this.nullList = nullList;
+        this.probStuList = probStuList;
+    }
+
+    private void removeInEligibleStudents(ArrayList<Student> stulist, ArrayList<Student> probStuList){
+        for (Student stu:stulist){
+            if(stu.getGPA() < 0.0 || stu.getGPA() > 100.0){
+                stu.setStatusChecker(1);
+                stu.setReason("Unacceptable GPA");
+                probStuList.add(stu);
+                stulist.remove(stu);
+            }
+            if(stu.getStudentChoices().size()<0){
+                stu.setStatusChecker(1);
+                stu.setReason("No choices selected");
+                probStuList.add(stu);
+                stulist.remove(stu);
+            }
+        }
     }
 
     private void sortStudentsOnGPA(ArrayList<Student> stulist){

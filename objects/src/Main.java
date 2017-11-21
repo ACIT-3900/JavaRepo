@@ -22,18 +22,16 @@ public class Main {
             Set<String> stuID = new HashSet<String>();
             //Set List of Null Student IDs
             Set<String> nullStuID = new HashSet<String>();
+            //ArrayList of Students with some problem, making them unable to be placed in class
+            ArrayList<Student> probStuList = new ArrayList<>();
 
             //Reads files in
             ReadOptionList(optlist, "OptionSelectionControl.csv", optName);
             ReadStudentChoices(stulist, "StudentChoices.csv");
             ReadStudentGPA(stulist, "StudentGPA.csv", stuID);
-<<<<<<< HEAD:objects/src/item/Main.java
             //Performs all functions required to sort students into their Option course
-            Placement place = new Placement(stulist, optlist, nullList);
-            place.displayGPA();
-            place.averageGPA(stulist);
-=======
-            StudentPlacement place = new StudentPlacement(stulist, optlist, nullList);
+
+            StudentPlacement place = new StudentPlacement(stulist, optlist, nullList, probStuList);
             System.out.println("SPREADSHEET STATISTICS");
             place.displayGPA();
             place.averageGPA(stulist);
@@ -42,7 +40,7 @@ public class Main {
             place.totalStudents(stulist);
             place.groupPriority(stulist);
             System.out.println();
->>>>>>> 12bed8678b2bb65224f0b0c400d411fc963715ec:objects/src/Main.java
+
             CreateNullStudentIDLIst(nullStuID, nullList);
 
             //Scans in new user input
@@ -138,7 +136,7 @@ public class Main {
                 studentChoices.add(studentInfo[8]);
 
                 //Save details
-                Student stu = new Student(studentInfo[0], studentInfo[1], studentInfo[2], Integer.parseInt(studentInfo[3]), 0, studentChoices, "", studentInfo[4], "");
+                Student stu = new Student(studentInfo[0], studentInfo[1], studentInfo[2], Integer.parseInt(studentInfo[3]), 0, studentChoices, "", studentInfo[4], "", 0);
                 stulist.add(stu);
             }
         }

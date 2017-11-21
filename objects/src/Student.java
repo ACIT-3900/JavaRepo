@@ -10,6 +10,7 @@ public class Student {
     private String assignedOption;
     private String status;
     private String reason;
+    private int statusChecker;
 
     //Default Constructor
     public Student(){
@@ -21,21 +22,11 @@ public class Student {
         this.studentChoices = null;
         this.assignedOption = "";
         this.status = "";
-    }
-
-    public Student(String ID, String firstName, String lastName, int priority, String status, ArrayList<String> choices){
-        this.ID =  ID;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.priority = priority;
-        this.GPA = 0;
-        this.studentChoices = choices;
-        this.assignedOption = "";
-        this.status = status;
+        this.statusChecker = 0;
     }
 
     //Not-Default Constructor
-    public Student(String id, String firstName, String lastName, int priority, double GPA, ArrayList<String> studentChoices, String assignedOption, String status, String reason) {
+    public Student(String id, String firstName, String lastName, int priority, double GPA, ArrayList<String> studentChoices, String assignedOption, String status, String reason, int statusChecker) {
         this.ID = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -45,7 +36,9 @@ public class Student {
         this.assignedOption = assignedOption;
         this.status = status;
         this.reason = reason;
+        this.statusChecker = statusChecker;
     }
+
     /* GETTERS */
 
     public String getID(){
@@ -86,13 +79,23 @@ public class Student {
         return lastName;
     }
 
+    public int getStatusChecker(){
+        return statusChecker;
+    }
+
     /* SETTERS */
 
-    public void setID(String ID){this.ID=ID;}
+    public void setID(String ID){
+        this.ID=ID;
+    }
 
-    public void setFirstName(String firstName){this.firstName=firstName;}
+    public void setFirstName(String firstName){
+        this.firstName=firstName;
+    }
 
-    public void setLastName(String lastName){this.lastName=lastName;}
+    public void setLastName(String lastName){
+        this.lastName=lastName;
+    }
 
     public void setPriority(int priority) {
         this.priority = priority;
@@ -114,6 +117,12 @@ public class Student {
         this.status = status;
     }
 
-    public void setReason(String reason){this.reason = reason;}
+    public void setReason(String reason){
+        this.reason = reason;
+    }
+
+    public void setStatusChecker(int checker){
+        this.statusChecker = checker;
+    }
 
 }

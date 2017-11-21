@@ -1,8 +1,5 @@
 import java.util.ArrayList;
 
-/**
- * Created by rodne on 2017-10-11.
- */
 public class Options {
     private String courseName;
     private int capacity;
@@ -12,6 +9,7 @@ public class Options {
         this.courseName = "";
         this.capacity = 0;
     }
+
     public Options(String courseName, int capacity) {
         this.courseName = courseName;
         this.capacity = capacity;
