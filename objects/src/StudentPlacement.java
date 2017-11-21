@@ -30,23 +30,46 @@ public class StudentPlacement {
     //Find the lowest GPA of all student
     public void lowestGPA(ArrayList<Student> stulist){
         double lowestGPA = 100.0;
+        int counter = 0;
         for(Student stu:stulist) {
             if (stu.getGPA() < lowestGPA) {
                 lowestGPA = stu.getGPA();
             }
+
+            if (stu.getGPA() < 0) {
+                counter += 1;
+            }
         }
-        System.out.println("Lowest GPA: "+ lowestGPA+"%");
+
+        System.out.println("Lowest GPA: " + lowestGPA + "%");
+
+        if (counter == 1) {
+            System.out.println("A GPA value is less than 0 and is invalid");
+            System.out.println();
+        }
+
     }
 
     //Find the highest GPA of all students
     public void highestGPA(ArrayList<Student> stulist){
         double highestGPA = 0.0;
+        int counter = 0;
         for(Student stu:stulist) {
             if (stu.getGPA() > highestGPA) {
                 highestGPA = stu.getGPA();
             }
+
+            if (stu.getGPA() > 0) {
+                counter += 1;
+            }
         }
+
         System.out.println("Highest GPA: "+ highestGPA+"%");
+
+        if (counter == 1) {
+            System.out.println("A GPA value is greater than 100 and is invalid");
+            System.out.println();
+        }
     }
 
     //Find total number of students on the list
