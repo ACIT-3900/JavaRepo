@@ -1,18 +1,109 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
-class StudentPlacement{
+/**
+ * Created by rodne on 2017-10-19.
+ * Edited by Mike on 2017-11-17
+ */
+public class StudentPlacement {
+
     private ArrayList<Student> stulist;
     private ArrayList<Options> optlist;
-    private ArrayList<Student> priorityListOne = new ArrayList<>();
-    private ArrayList<Student> priorityListTwo = new ArrayList<>();
-    private ArrayList<Student> priorityListThree = new ArrayList<>();
-    private ArrayList<Student> priorityListFour = new ArrayList<>();
+    private HashSet<Student> nullList;
+    ArrayList<Student> onePriorityList = new ArrayList<>();
+    ArrayList<Student> twoPriorityList = new ArrayList<>();
+    ArrayList<Student> threePriorityList = new ArrayList<>();
+    ArrayList<Student> fourPriorityList = new ArrayList<>();
 
-    StudentPlacement(ArrayList<Student> stulist, ArrayList<Options> optlist){
+    //Find the average GPA of all students
+    public void averageGPA(ArrayList<Student> stulist){
+        Double gpa = 0.0;
+        int numberOfStudents = 0;
+        double totalGPA = 0.0;
+        for(Student stu:stulist){
+            gpa += stu.getGPA();
+            numberOfStudents++;
+        }
+        totalGPA = Math.round((gpa/numberOfStudents)*100);
+        System.out.println("Average GPA of All Students: "+ totalGPA/100+"%");
+    }
+
+    //Find the lowest GPA of all student
+    public void lowestGPA(ArrayList<Student> stulist){
+        double lowestGPA = 100.0;
+        int counter = 0;
+        for(Student stu:stulist) {
+            if (stu.getGPA() < lowestGPA) {
+                lowestGPA = stu.getGPA();
+            }
+
+            if (stu.getGPA() < 0) {
+                counter += 1;
+            }
+        }
+
+        System.out.println("Lowest GPA: " + lowestGPA + "%");
+
+        if (counter == 1) {
+            System.out.println("A GPA value is less than 0 and is invalid");
+            System.out.println();
+        }
+
+    }
+
+    //Find the highest GPA of all students
+    public void highestGPA(ArrayList<Student> stulist){
+        double highestGPA = 0.0;
+        int counter = 0;
+        for(Student stu:stulist) {
+            if (stu.getGPA() > highestGPA) {
+                highestGPA = stu.getGPA();
+            }
+
+            if (stu.getGPA() > 0) {
+                counter += 1;
+            }
+        }
+
+        System.out.println("Highest GPA: "+ highestGPA+"%");
+
+        if (counter == 1) {
+            System.out.println("A GPA value is greater than 100 and is invalid");
+            System.out.println();
+        }
+    }
+
+    //Find total number of students on the list
+    public void totalStudents(ArrayList<Student> stulist){
+        int numberOfStudents = 0;
+        for(Student stu:stulist){
+            numberOfStudents++;
+        }
+        System.out.println("Total Number of Students: "+ numberOfStudents);
+    }
+
+    //Find out how many people are in each priority and number of people who does not have either priority 1 or 2
+    public void groupPriority(ArrayList<Student> stulist){
+            int priorityA = 0;
+            int priorityB = 0;
+            int otherPriority = 0;
+            for(Student stu:stulist) {
+                if (stu.getPriority() == 1) {
+                    priorityA++;
+                } else if (stu.getPriority() == 2) {
+                    priorityB++;
+                } else {
+                    otherPriority = 0;
+                }
+            }
+            System.out.println("Students with Priority Level 1: " +priorityA);
+            System.out.println("Students with Priority Level 2: " +priorityB);
+            System.out.println("Students with Other Priority Level: " +otherPriority);
+    }
+
+    public StudentPlacement(ArrayList<Student> stulist, ArrayList<Options> optlist, HashSet<Student> nullList){
         this.stulist = stulist;
         this.optlist = optlist;
+        this.nullList = nullList;
     }
 
     private void sortStudentsOnGPA(ArrayList<Student> stulist){
@@ -23,47 +114,93 @@ class StudentPlacement{
         for (Student s:stulist) {
             switch(s.getPriority()){
                 case 1:
-                    priorityListOne.add(s);
+                    onePriorityList.add(s);
                     break;
 
                 case 2:
-                    priorityListTwo.add(s);
+                    twoPriorityList.add(s);
                     break;
 
                 case 3:
-                    priorityListThree.add(s);
+                    threePriorityList.add(s);
                     break;
 
                 case 4:
-                    priorityListFour.add(s);
+                    fourPriorityList.add(s);
                     break;
             }
         }
     }
 
-    private void placePriorityLists(ArrayList<Student> priorityList, ArrayList<Options> optlist){
-        for(Student s : priorityList){
-            int chk_placed = 0;
-            for(int i=0; i<s.getStudentChoices().size();i++) {
-                if (chk_placed == 0) {
-                    for (Options o : optlist) {
-                        if (o.getOptionName().equals(s.getStudentChoices().get(i)) && o.getEmptySeats() != 0) {
-                            o.addToClassList(s);
-                            chk_placed++;
-                            break;
-                        }
-                    }
-                }
+    private void createNullList(ArrayList<Student> onePriorityList, ArrayList<Student> twoPriorityList, ArrayList<Student> threePriorityList, ArrayList<Student> fourPriorityList){
+        ArrayList<Student> one = onePriorityList;
+        ArrayList<Student> two = twoPriorityList;
+        ArrayList<Student> three = threePriorityList;
+        ArrayList<Student> four = fourPriorityList;
+
+        for(Student stu:one){
+            if(stu.getAssignedOption().equals("NOTHING")){
+                nullList.add(stu);
+            }
+        }
+        for(Student stu:two){
+            if(stu.getAssignedOption().equals("NOTHING")){
+                nullList.add(stu);
+            }
+        }
+        for(Student stu:three){
+            if(stu.getAssignedOption().equals("NOTHING")){
+                nullList.add(stu);
+            }
+        }
+        for(Student stu:four){
+            if(stu.getAssignedOption().equals("NOTHING")){
+                nullList.add(stu);
             }
         }
     }
 
-    void displayGPA(){
+    private void placePriorityLists(ArrayList<Student> priorityList, ArrayList<Options> optlist) {
+        for(Student stu:priorityList){
+            if(stu.getStudentChoices().size()>0){
+                if("".equals(stu.getStatus())){
+                    int check = 0;
+                    for(int i=0;i<stu.getStudentChoices().size();i++){
+                        if(check ==0){
+                            for(Options opt:optlist){
+                                if (opt.getCourseName().equals(stu.getStudentChoices().get(i)) && opt.getEmptySeats()!= 0) {
+                                    opt.addStudentToList(stu);
+                                    stu.setAssignedOption(opt.getCourseName());
+                                    check++;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    if(check == 0 && stu.getAssignedOption() != null){
+                        stu.setReason("All choice classes are full");
+                        stu.setAssignedOption("NOTHING");
+                    }
+                }else{
+                    stu.setReason("Has a status");
+                    stu.setAssignedOption("NOTHING");
+                }
+            }else{
+                stu.setReason("No selection was made");
+                stu.setAssignedOption("NOTHING");
+            }
+        }
+    }
+
+    public void displayGPA(){
         sortStudentsOnGPA(stulist);
         sortStudentsOnPriority(stulist);
-        placePriorityLists(priorityListOne, optlist);
-        placePriorityLists(priorityListTwo, optlist);
-        placePriorityLists(priorityListThree, optlist);
-        placePriorityLists(priorityListFour, optlist);
+        placePriorityLists(onePriorityList, optlist);
+        placePriorityLists(twoPriorityList, optlist);
+        placePriorityLists(threePriorityList, optlist);
+        placePriorityLists(fourPriorityList, optlist);
+        createNullList(onePriorityList, twoPriorityList, threePriorityList, fourPriorityList);
     }
+
+
 }
