@@ -43,7 +43,7 @@ public class StudentPlacement {
 
         System.out.println("Lowest GPA: " + lowestGPA + "%");
 
-        if (counter == 1) {
+        if (counter != 0) {
             System.out.println("A GPA value is less than 0 and is invalid");
             System.out.println();
         }
@@ -59,14 +59,14 @@ public class StudentPlacement {
                 highestGPA = stu.getGPA();
             }
 
-            if (stu.getGPA() > 0) {
+            if (stu.getGPA() > 100) {
                 counter += 1;
             }
         }
 
         System.out.println("Highest GPA: "+ highestGPA+"%");
 
-        if (counter == 1) {
+        if (counter != 0) {
             System.out.println("A GPA value is greater than 100 and is invalid");
             System.out.println();
         }
@@ -92,12 +92,55 @@ public class StudentPlacement {
                 } else if (stu.getPriority() == 2) {
                     priorityB++;
                 } else {
-                    otherPriority = 0;
+                    otherPriority++;
                 }
             }
             System.out.println("Students with Priority Level 1: " +priorityA);
             System.out.println("Students with Priority Level 2: " +priorityB);
-            System.out.println("Students with Other Priority Level: " +otherPriority);
+            if(otherPriority != 0) {
+                System.out.println("Students with Other Priority Level: " +otherPriority);
+            }else{
+                System.out.println("Note: No students in other priority level!");
+            }
+    }
+
+    //This class calculate average GPA based on priority
+    public void priorityGPA(ArrayList<Student> stulist) {
+        Double GPA1 = 0.0;
+        Double GPA2 = 0.0;
+        Double GPAOther = 0.0;
+        int numberOfStudents1 = 0;
+        int numberOfStudents2 = 0;
+        int numberOfStudentsOther = 0;
+        double totalGPA1 = 0.0;
+        double totalGPA2 = 0.0;
+        double totalGPAOther = 0.0;
+        for(Student stu:stulist){
+            if(stu.getPriority() == 1) {
+                GPA1 += stu.getGPA();
+                numberOfStudents1++;
+            }else if(stu.getPriority() == 2) {
+                GPA2 +=stu.getGPA();
+                numberOfStudents2++;
+            }else{
+                GPAOther +=stu.getGPA();
+                numberOfStudentsOther++;
+            }
+        }
+        totalGPA1 = Math.round((GPA1/numberOfStudents1)*100);
+        totalGPA2 = Math.round((GPA2/numberOfStudents2)*100);
+        totalGPAOther = Math.round((GPAOther/numberOfStudentsOther)*100);
+        System.out.println("Average GPA of Priority 1 Students: "+ totalGPA1/100+"%");
+        System.out.println("Average GPA of Priority 2 Students: "+ totalGPA2/100+"%");
+        if(numberOfStudentsOther != 0) {
+            System.out.println("Average GPA of Other Priority Students: " + totalGPAOther / 100 + "%");
+        }
+
+    }
+
+    //This class finds the most "in-demand" choice of students
+    public void demandChoices(ArrayList<Student> stulist){
+
     }
 
     public StudentPlacement(ArrayList<Student> stulist, ArrayList<Options> optlist, HashSet<Student> nullList){
