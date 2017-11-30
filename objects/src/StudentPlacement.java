@@ -107,7 +107,7 @@ public class StudentPlacement {
     }
 
     private void sortStudentsOnGPA(ArrayList<Student> stulist){
-        Collections.sort(stulist, Comparator.comparing(Student::getGPA).reversed());
+
     }
 
     private void sortStudentsOnPriority(ArrayList<Student> stulist){
@@ -193,7 +193,6 @@ public class StudentPlacement {
     }
 
     public void displayGPA(){
-        sortStudentsOnGPA(stulist);
         sortStudentsOnPriority(stulist);
         placePriorityLists(onePriorityList, optlist);
         placePriorityLists(twoPriorityList, optlist);
