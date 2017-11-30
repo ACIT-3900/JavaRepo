@@ -106,10 +106,6 @@ public class StudentPlacement {
         this.nullList = nullList;
     }
 
-    private void sortStudentsOnGPA(ArrayList<Student> stulist){
-
-    }
-
     private void sortStudentsOnPriority(ArrayList<Student> stulist){
         for (Student s:stulist) {
             switch(s.getPriority()){
