@@ -34,6 +34,8 @@ public class Main {
             place.lowestGPA(stulist);
             place.totalStudents(stulist);
             place.groupPriority(stulist);
+            place.priorityGPA(stulist);
+            place.demandChoices(stulist);
             System.out.println();
             CreateNullStudentIDLIst(nullStuID, nullList);
 
