@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inherit-compiler-output="true" inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/out/test/objects"/>
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$">
+		<testFolder url="file://$MODULE_DIR$/Tests"/>
+	</contentEntry>
+	<lib name="JUnit5" scope="TEST"/>
+	<levels>
+		<level name="junit-4.10" value="project"/>
+	</levels>
+</component>
