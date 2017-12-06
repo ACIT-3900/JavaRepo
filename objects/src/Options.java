@@ -1,19 +1,28 @@
 import java.util.ArrayList;
 
 /**
- * Created by rodney on 2017-10-11.
+ * Options.java
+ *
+ * Create Option objects
+ *
+ * @author Rodney Tran and Mohammed Bajaman
+ * @version 1.1, Sept 2017
  */
+
 public class Options {
-    private String courseName;
+    private String optionName;
     private int capacity;
     private ArrayList<Student> classList = new ArrayList<>();
 
+    //Default Constructor
     public Options(){
-        this.courseName = "";
+        this.optionName = "";
         this.capacity = 0;
     }
-    public Options(String courseName, int capacity) {
-        this.courseName = courseName;
+
+    //Not-Default Constructor
+    public Options(String optionName, int capacity) {
+        this.optionName = optionName;
         this.capacity = capacity;
     }
 
@@ -23,8 +32,8 @@ public class Options {
         return capacity;
     }
 
-    String getCourseName(){
-        return courseName;
+    String getOptionName(){
+        return optionName;
     }
 
     String getClassList(){
@@ -45,8 +54,8 @@ public class Options {
         this.capacity = capacity;
     }
 
-    public void setCourseName(String courseName){
-        this.courseName = courseName;
+    public void setOptionName(String optionName){
+        this.optionName = optionName;
     }
 
     public void setClassList(ArrayList<Student> newClassList){
@@ -55,23 +64,26 @@ public class Options {
 
     /* FUNCTIONS */
 
+    //Removes Student object from Option class list
     void removeStudent(String studentName){
-        for(Student s:classList){
-            if (s.getName().equals(studentName)){
-                classList.remove(s);
+        for(Student student:classList){
+            if (student.getName().equals(studentName)){
+                classList.remove(student);
                 break;
             }
         }
     }
 
-    void addStudentToList(Student stu){
-        classList.add(stu);
+    //Adds Student object to Option class list
+    void addStudentToList(Student student){
+        classList.add(student);
     }
 
-    String checkStudentInClass(String stuID){
+    //Checks if student is inside Option class list
+    String checkStudentInClass(String studentID){
         String checker="";
-        for(Student s:classList){
-            if(s.getID().equals(stuID)){
+        for(Student student:classList){
+            if(student.getID().equals(studentID)){
                 checker = "pos";
                 break;
             }
@@ -79,6 +91,7 @@ public class Options {
         return checker;
     }
 
+    //Returns an integer of empty seats in Option class list
     int getEmptySeats() {
         if(classList == null){
             return capacity;
