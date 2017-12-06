@@ -100,5 +100,4 @@ public class Options {
             return capacity - classList.size();
         }
     }
-
 }

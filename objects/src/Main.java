@@ -13,8 +13,6 @@ import java.util.*;
  * @version 1.1, Sept 2017
  */
 
-
-
 public class Main {
     private static final String COMMA_DELIMITER = ",";
     public static void main(String[] args) throws FileNotFoundException {
@@ -425,5 +423,4 @@ public class Main {
             System.out.println("Student does not exist");
         }
     }
-
 }
