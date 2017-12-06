@@ -1,0 +1,97 @@
+Student #,First Name,Last Name,Priority list,Status,First Choice,Second Choice,Third Choice,Fourth Choice,Fifth Choice,Sixth Choice
+A00001281,Austin,Aguilar,1,,Math,Wait for next term,Health,Arts,Geography,Science
+A00001321,Cameron,An,1,,Science,Math,Wait for next term,Health,Arts,Geography
+A00001241,Kevin,Aquilario,1,,Geography,Science,Math,Wait for next term,Health,Arts
+A00001266,Eddy,Banks-Bywater,1,,Arts,Geography,Science,Math,Wait for next term,Health
+A00001242,Anson,Banman,2,,Health,Arts,Geography,Science,Math,Wait for next term
+A00001286,Evgeni,Bayntun,1,,Wait for next term,Health,Arts,Geography,Science,Math
+A00001311,Jagjot,Bhatti,1,,Math,Wait for next term,Health,Arts,Geography,Science
+A00001246,Nansi,Brandrick,2,,Science,Math,Wait for next term,Health,Arts,Geography
+A00001244,Joshua,Brigden,1,,Geography,Science,Math,Wait for next term,Health,Arts
+A00001319,Adam,Buhler,1,,Arts,Geography,Science,Math,Wait for next term,Health
+A00001324,Juan,Chan,1,,Health,Arts,Geography,Science,Math,Wait for next term
+A00001317,Soran,Charles-Lundaahl,1,,Wait for next term,Health,Arts,Geography,Science,Math
+A00001240,Gabriella,Cheng,1,,Math,Wait for next term,Health,Arts,Geography,Science
+A00001327,Tyler,Chiang,1,,Science,Math,Wait for next term,Health,Arts,Geography
+A00001306,Dzmitry,Chimick,1,,Geography,Science,Math,Wait for next term,Health,Arts
+A00001294,Matthew,Chiu,1,,Arts,Geography,Science,Math,Wait for next term,Health
+A00001320,Anthony,Chodolak,2,,Health,Arts,Geography,Science,Math,Wait for next term
+A00001309,Ricky ,Chu,1,,Wait for next term,Health,Arts,Geography,Science,Math
+A00001314,Jaegar,Clarke,2,Waiting on grades from PTS.,Math,Wait for next term,Health,Arts,Geography,Science
+A00001329,Chih,Craig,1,,Science,Math,Wait for next term,Health,Arts,Geography
+A00001243,Carlo,Dale,1,,Geography,Science,Math,Wait for next term,Health,Arts
+A00001298,Arthur,Dellow,1,,Arts,Geography,Science,Math,Wait for next term,Health
+A00001288,Dhivya,Dorsay,1,,Health,Arts,Geography,Science,Math,Wait for next term
+A00001261,Ruoqi,Ferreira,1,,Wait for next term,Health,Arts,Geography,Science,Math
+A00001293,Eunwon,Gonzales,1,,Math,Wait for next term,Health,Arts,Geography,Science
+A00001245,Jon,Gutica,1,,Science,Math,Wait for next term,Health,Arts,Geography
+A00001250,Ralph,Hartline,1,,Geography,Science,Math,Wait for next term,Health,Arts
+A00001239,Xu,Harvey,1,,Arts,Geography,Science,Math,Wait for next term,Health
+A00001258,William,Hlynsky,1,,Health,Arts,Geography,Science,Math,Wait for next term
+A00001315,Matthew,Hodgkinson,1,,Wait for next term,Health,Arts,Geography,Science,Math
+A00001247,Anthony,Hristov,2,,Math,Wait for next term,Health,Arts,Geography,Science
+A00001268,Sean,Hui,1,,Science,Math,Wait for next term,Health,Arts,Geography
+A00001302,Scott,Hung,1,,Geography,Science,Math,Wait for next term,Health,Arts
+A00001255,Tyler,Ivanov,1,,Arts,Geography,Science,Math,Wait for next term,Health
+A00001285,Quan-Huy,Jesse,2,Waiting on grades from PTS.,Health,Arts,Geography,Science,Math,Wait for next term
+A00001287,Alvin,Ji,2,,Wait for next term,Health,Arts,Geography,Science,Math
+A00001235,Colin,Khan,1,May be placed on co-op,Math,Wait for next term,Health,Arts,Geography,Science
+A00001248,Mary Grace,Khangura,1,,Science,Math,Wait for next term,Health,Arts,Geography
+A00001332,Micah,Kim,2,,Geography,Science,Math,Wait for next term,Health,Arts
+A00001307,Roscef,Klassen,1,,Arts,Geography,Science,Math,Wait for next term,Health
+A00001283,Jacky,Kopczynski,1,,Health,Arts,Geography,Science,Math,Wait for next term
+A00001264,Jason,Kouwenhoven,1,,Wait for next term,Health,Arts,Geography,Science,Math
+A00001269,Allan,Krishnanta,1,,Math,Wait for next term,Health,Arts,Geography,Science
+A00001292,Robert,Lachapelle,1,,Science,Math,Wait for next term,Health,Arts,Geography
+A00001237,Stuart,Lai,1,,Geography,Science,Math,Wait for next term,Health,Arts
+A00001308,Daniel,Lam,1,,Arts,Geography,Science,Math,Wait for next term,Health
+A00001265,Yu Ching,Lam,1,,Health,Arts,Geography,Science,Math,Wait for next term
+A00001310,Carson,Lauzon,1,,Wait for next term,Health,Arts,Geography,Science,Math
+A00001316,Chang Beom,Lee,1,,Math,Wait for next term,Health,Arts,Geography,Science
+A00001299,Kamil,Lee,1,,Science,Math,Wait for next term,Health,Arts,Geography
+A00001257,Grayden,Leung,1,,Geography,Science,Math,Wait for next term,Health,Arts
+A00001236,Trevor,Leung,1,,Arts,Geography,Science,Math,Wait for next term,Health
+A00001260,John,lim,1,,Health,Arts,Geography,Science,Math,Wait for next term
+A00001274,Michael,Liu,2,,Wait for next term,Health,Arts,Geography,Science,Math
+A00001289,Johnny,Lo,2,Waiting on grades from PTS.,Math,Wait for next term,Health,Arts,Geography,Science
+A00001290,Tyler,Lockhart,1,,Science,Math,Wait for next term,Health,Arts,Geography
+A00001313,Rupinder Pal,Loho,1,,Geography,Science,Math,Wait for next term,Health,Arts
+A00001303,Spencer,Lues,2,,Arts,Geography,Science,Math,Wait for next term,Health
+A00001262,Vivek,Lyons-Davis,1,,Health,Arts,Geography,Science,Math,Wait for next term
+A00001277,Daniel Ying Hung,Ma,2,,Wait for next term,Health,Arts,Geography,Science,Math
+A00001238,Krystle,Mabbott,1,,Math,Wait for next term,Health,Arts,Geography,Science
+A00001279,Nathaniel,Marantz,1,,Science,Math,Wait for next term,Health,Arts,Geography
+A00001253,Juven,Meilleur,1,,Geography,Science,Math,Wait for next term,Health,Arts
+A00001296,Khoa,Montano,1,,Arts,Geography,Science,Math,Wait for next term,Health
+A00001278,Brian,Padua,1,,Health,Arts,Geography,Science,Math,Wait for next term
+A00001300,Joseph,Pelka,1,,Wait for next term,Health,Arts,Geography,Science,Math
+A00001284,Jing,Pham,1,,Math,Wait for next term,Health,Arts,Geography,Science
+A00001249,Hsuan Wei,Qualizza,1,,Science,Math,Wait for next term,Health,Arts,Geography
+A00001259,Jayson,rafanan,2,,Geography,Science,Math,Wait for next term,Health,Arts
+A00001272,Eric,Rattan,1,,Arts,Geography,Science,Math,Wait for next term,Health
+A00001301,Duy,Rempel,1,,Health,Arts,Geography,Science,Math,Wait for next term
+A00001267,Eric,Sabourova,2,,Wait for next term,Health,Arts,Geography,Science,Math
+A00001297,Nguyen,Sadio,1,,Math,Wait for next term,Health,Arts,Geography,Science
+A00001318,She Jong,Sarang,1,,Science,Math,Wait for next term,Health,Arts,Geography
+A00001323,Clifton,Sato,1,,Geography,Science,Math,Wait for next term,Health,Arts
+A00001280,Hank,Scott,1,,Arts,Geography,Science,Math,Wait for next term,Health
+A00001282,Eric,Smith,1,,Health,Arts,Geography,Science,Math,Wait for next term
+A00001325,Tom,Smith-Manchip,1,,Wait for next term,Health,Arts,Geography,Science,Math
+A00001271,Seonghyoung,Soer,2,,Math,Wait for next term,Health,Arts,Geography,Science
+A00001276,Andrew,Tallarico,1,,Science,Math,Wait for next term,Health,Arts,Geography
+A00001312,Samuel,Tallentire,1,,Geography,Science,Math,Wait for next term,Health,Arts
+A00001295,Kwok Chu,Tan,1,,Arts,Geography,Science,Math,Wait for next term,Health
+A00001252,Hai Hoang,Truong,1,May be placed on co-op,Health,Arts,Geography,Science,Math,Wait for next term
+A00001270,Spenser,Tsang,1,,Wait for next term,Health,Arts,Geography,Science,Math
+A00001256,Phillip,Velasco,1,,Math,Wait for next term,Health,Arts,Geography,Science
+A00001275,Don Yimeng,Vouve,2,,Science,Math,Wait for next term,Health,Arts,Geography
+A00001305,Yong Ern,Walker-Illing,1,,Geography,Science,Math,Wait for next term,Health,Arts
+A00001254,Aicha,Wang,1,,Arts,Geography,Science,Math,Wait for next term,Health
+A00001326,Jose Claudio,Wang,1,,Health,Arts,Geography,Science,Math,Wait for next term
+A00001273,Tony,Waziri,2,,Wait for next term,Health,Arts,Geography,Science,Math
+A00001291,Martin,WU,1,,Math,Wait for next term,Health,Arts,Geography,Science
+A00001331,Andrew,Xia,1,,Science,Math,Wait for next term,Health,Arts,Geography
+A00001251,Quan,Xie,1,,Geography,Science,Math,Wait for next term,Health,Arts
+A00001322,Wesley,Ye,1,,Arts,Geography,Science,Math,Wait for next term,Health
+A00001304,Derrick,Yoo,1,,Health,Arts,Geography,Science,Math,Wait for next term
+A00001330,Brendan,Yoon,1,,Wait for next term,Health,Arts,Geography,Science,Math

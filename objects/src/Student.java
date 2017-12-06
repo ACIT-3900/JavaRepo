@@ -1,5 +1,14 @@
 import java.util.ArrayList;
 
+/**
+ * Student.java
+ *
+ * Create Student objects
+ *
+ * @author Rodney Tran and Mohammed Bajaman
+ * @version 1.1, Sept 2017
+ */
+
 public class Student {
     private String ID;
     private String firstName;
@@ -10,7 +19,7 @@ public class Student {
     private String assignedOption;
     private String status;
     private String reason;
-    private int statusChecker;
+    private int pointChecker;
 
     //Default Constructor
     public Student(){
@@ -22,7 +31,7 @@ public class Student {
         this.studentChoices = null;
         this.assignedOption = "";
         this.status = "";
-        this.statusChecker = 0;
+        this.pointChecker = 0;
     }
 
     //Not-Default Constructor
@@ -36,7 +45,7 @@ public class Student {
         this.assignedOption = assignedOption;
         this.status = status;
         this.reason = reason;
-        this.statusChecker = statusChecker;
+        this.pointChecker = statusChecker;
     }
 
     /* GETTERS */
@@ -46,7 +55,7 @@ public class Student {
     }
 
     public String getName() {
-        return firstName+" "+lastName;
+        return firstName + " " + lastName;
     }
 
     public int getPriority() {
@@ -69,7 +78,9 @@ public class Student {
         return status;
     }
 
-    public String getReason(){return reason;}
+    public String getReason(){
+        return reason;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -79,22 +90,22 @@ public class Student {
         return lastName;
     }
 
-    public int getStatusChecker(){
-        return statusChecker;
+    public int getPointChecker(){
+        return pointChecker;
     }
 
     /* SETTERS */
 
     public void setID(String ID){
-        this.ID=ID;
+        this.ID = ID;
     }
 
     public void setFirstName(String firstName){
-        this.firstName=firstName;
+        this.firstName = firstName;
     }
 
     public void setLastName(String lastName){
-        this.lastName=lastName;
+        this.lastName = lastName;
     }
 
     public void setPriority(int priority) {
@@ -121,8 +132,8 @@ public class Student {
         this.reason = reason;
     }
 
-    public void setStatusChecker(int checker){
-        this.statusChecker = checker;
+    public void setPointChecker(int checker){
+        this.pointChecker = checker;
     }
 
 }
