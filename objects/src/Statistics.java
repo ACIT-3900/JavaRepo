@@ -94,4 +94,40 @@ public class Statistics {
         System.out.println("Students with Priority Level 4: " + priorityListFour);
         System.out.println("Students with No Priority Level: " + noPriority);
     }
+
+    //Calculates the average GPA of all students in each priority level
+    public void priorityGPA(ArrayList<Student> studentList) {
+        Double priorityLevelOneGPA = 0.0;
+        Double priorityLevelTwoGPA = 0.0;
+        Double priorityLevelThreeGPA = 0.0;
+        Double priorityLevelFourGPA = 0.0;
+        int levelOneStudents = 0;
+        int levelTwoStudents = 0;
+        int levelThreeStudents = 0;
+        int levelFourStudents = 0;
+        for(Student student : studentList){
+            if(student.getPriority() == 1){
+                priorityLevelOneGPA += student.getGPA();
+                levelOneStudents++;
+            } else if(student.getPriority() == 2){
+                priorityLevelTwoGPA += student.getGPA();
+                levelTwoStudents++;
+            } else if(student.getPriority() == 3) {
+                priorityLevelThreeGPA += student.getGPA();
+                levelThreeStudents++;
+            } else if(student.getPriority() == 4){
+                priorityLevelFourGPA += student.getGPA();
+                levelFourStudents++;
+            }
+        }
+        double totalGPAOne = Math.round((priorityLevelOneGPA / levelOneStudents) * 100);
+        double totalGPATwo = Math.round((priorityLevelTwoGPA / levelTwoStudents) * 100);
+        double totalGPAThree = Math.round((priorityLevelThreeGPA / levelThreeStudents) * 100);
+        double totalGPAFour = Math.round((priorityLevelFourGPA / levelFourStudents) * 100);
+
+        System.out.println("Average GPA of Priority 1 Students: " + totalGPAOne / 100 + "%");
+        System.out.println("Average GPA of Priority 2 Students: " + totalGPATwo / 100 + "%");
+        System.out.println("Average GPA of Priority 3 Students: " + totalGPAThree / 100 + "%");
+        System.out.println("Average GPA of Priority 4 Students: " + totalGPAFour / 100 + "%");
+    }
 }

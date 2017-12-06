@@ -45,6 +45,7 @@ public class Main {
             stats.lowestGPA(studentList);
             stats.totalStudents(studentList);
             stats.groupPriority(studentList);
+            stats.priorityGPA(studentList);
             System.out.println();
 
             //Outputs student overflow and ineligible students
