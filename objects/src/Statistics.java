@@ -10,11 +10,6 @@ import java.util.ArrayList;
  * @version 1.1, November 2017
  */
 public class Statistics {
-    private ArrayList<Student> studentList;
-
-    public Statistics(ArrayList<Student> studentList){
-        this.studentList = studentList;
-    }
 
     //Calculates the average GPA of all students
     public void averageGPA(ArrayList<Student> studentList){

@@ -35,7 +35,7 @@ public class Main {
             //Performs all functions required to sort students into their Option course
             StudentPlacement place = new StudentPlacement(studentList, optionList);
             place.studentPlacementSort();
-            Statistics stats = new Statistics(studentList);
+            Statistics stats = new Statistics();
 
             //Performs Statistics class functions
 
@@ -153,6 +153,9 @@ public class Main {
             ArrayList<String> studentChoices = new ArrayList<>();
             if(studentInfo.length>0){
 
+                /* Changes Student choice from "wait for January" to "wait a term" */
+                /* Position includes all student information except for choices */
+
                 //Changes Student choice from "Wait for January" to "Wait a term"
                 int position = 5;
                 while (position < studentInfo.length){
@@ -162,13 +165,14 @@ public class Main {
                     position++;
                 }
 
-                //Save option choices made by student
-                studentChoices.add(studentInfo[5]);
-                studentChoices.add(studentInfo[6]);
-                studentChoices.add(studentInfo[7]);
-                studentChoices.add(studentInfo[8]);
-                studentChoices.add(studentInfo[9]);
-                studentChoices.add(studentInfo[10]);
+                //Resets position
+                position = 5;
+
+                //Adds all student choices to an Arraylist dynamically
+                while (position < studentInfo.length){
+                    studentChoices.add(studentInfo[position]);
+                    position++;
+                }
 
                 //Save details and creates new Student object
                 Student student = new Student(studentInfo[0], studentInfo[1], studentInfo[2], Integer.parseInt(studentInfo[3]), 0, studentChoices, "", studentInfo[4], "", 0);
